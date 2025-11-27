@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vaishnavi Ashok Kokate — Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+          --grad-start:#b26bff; --grad-end:#ff7ae5;
+          --main-grad: linear-gradient(135deg,var(--grad-start),var(--grad-end));
+        }
+        html,body{height:100%}
+        body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;transition:background .35s,color .35s}
+        body.dark{background:#071127;color:#e6eef8}
+        body.light{background:#f8fafc;color:#0f172a}
+
+        .glass{background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);border-radius:12px;border:1px solid rgba(255,255,255,0.06);transition:all .3s}
+        body.light .glass{background:#ffffff;border:1px solid rgba(0,0,0,0.06)}
+
+        .neon{background:var(--main-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .skill{display:inline-block;padding:6px 12px;border-radius:999px;margin:4px;border:1px solid rgba(178,107,255,0.25);background:linear-gradient(180deg, rgba(178,107,255,0.06), rgba(255,122,229,0.03));transition:transform .18s}
+        .skill:hover{transform:translateY(-4px)}
+        .container{max-width:1100px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+
+        /* Toggle */
+        .toggle{width:64px;height:36px;border-radius:999px;padding:4px;display:inline-flex;align-items:center;background:rgba(255,255,255,0.06);cursor:pointer;transition:background .25s, box-shadow .25s}
+        body.light .toggle{background:#ffffff;box-shadow:0 6px 18px rgba(2,6,23,.06)}
+        .dot{width:28px;height:28px;border-radius:999px;background:#fff;display:flex;align-items:center;justify-content:center;transform:translateX(0);transition:transform .28s cubic-bezier(.2,.9,.2,1)}
+        .toggle.on .dot{transform:translateX(28px)}
+        .muted{opacity:.82;font-size:.95rem}
+        a.link-grad{background:var(--main-grad);-webkit-background-clip:text;color:transparent;font-weight:600}
+
+        /* project hover */
+        .project-card{transition:transform .22s,box-shadow .22s}
+        .project-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,.18)}
+        footer{opacity:.9}
+        @media (max-width:720px){.desktop-only{display:none}}
+    </style>
+</head>
+<body class="dark">
+
+<!-- NAV  -->
+<header class="fixed top-4 left-0 right-0 px-4 z-50">
+    <div class="container flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#ffd6f5,#e9d9ff)">
+                <span class="font-bold neon">VK</span>
+            </div>
+            <div>
+                <div class="text-sm muted font-semibold">VAISHNAVI ASHOK KOKATE</div>
+                <div class="text-xs muted">AI / ML • Data Science • Backend • Cloud</div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <!-- Toggle -->
+            <div id="themeToggle" class="toggle" role="button" aria-pressed="false" title="Toggle light / dark">
+                <div class="dot">🌙</div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-3 desktop-only">
+                <a href="mailto:vaishnavikokate247@gmail.com" class="muted" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+917666536559" class="muted" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="https://linkedin.com/in/vaishnavi-kokate24" target="_blank" class="muted" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="muted" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+
+            <button id="mobileBtn" class="md:hidden text-xl muted"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<main class="pt-28 pb-16">
+    <!-- HERO -->
+    <section id="home" class="container text-center py-12">
+        <h1 class="text-4xl md:text-6xl font-extrabold neon">Vaishnavi Ashok Kokate</h1>
+        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto muted">
+            Aspiring to secure an entry-level role in AI, Machine Learning, Cloud Computing, Backend Development, or Software Testing.
+            I build data-driven solutions, ML models and cloud-deployed applications to solve real-world problems.
+        </p>
+
+        <div class="mt-8 flex items-center justify-center gap-4">
+            <a href="#contact" class="px-6 py-3 rounded-full text-white" style="background:var(--grad-start);background-image:var(--main-grad);">Get In Touch</a>
+            <a href="VAISHNAVI_KOKATE_RESUME_ALL.pdf" download class="glass px-6 py-3 rounded-full">Download Resume</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container py-8">
+        <div class="glass p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center">
+            <div class="w-36 h-36 rounded-full overflow-hidden shadow">
+                <!-- your photo (must be in same folder) -->
+                <img src="VK_PHOTO.png" alt="Vaishnavi Kokate" class="w-full h-full object-cover">
+            </div>
+
+            <div class="flex-1">
+                <h3 class="text-2xl font-semibold neon">About Me</h3>
+                <p class="mt-3 muted">
+                    I am a passionate AI/ML enthusiast and backend developer with strong skills in Java, Python, Machine Learning, NLP,
+                    Data Analytics and Cloud Deployment. I enjoy building intelligent applications, chatbots, dashboards and scalable backend systems.
+                </p>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                    <div class="p-3">
+                        <div class="text-xs muted">Email</div>
+                        <div>vaishnavikokate247@gmail.com</div>
+                    </div>
+                    <div class="p-3">
+                        <div class="text-xs muted">Phone</div>
+                        <div>+91 76665 36559</div>
+                    </div>
+                    <div class="p-3">
+                        <div class="text-xs muted">Location</div>
+                        <div>Yerwada, Pune</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Skills & Expertise</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">Programming</div>
+                <div><span class="skill">Java</span><span class="skill">Python</span><span class="skill">JavaScript</span><span class="skill">HTML</span><span class="skill">CSS</span></div>
+            </div>
+
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">Backend</div>
+                <div><span class="skill">Spring Boot</span><span class="skill">Node.js</span><span class="skill">Express.js</span><span class="skill">REST APIs</span></div>
+            </div>
+
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">Databases</div>
+                <div><span class="skill">MySQL</span><span class="skill">MongoDB</span><span class="skill">Redis</span></div>
+            </div>
+
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">AI / ML</div>
+                <div><span class="skill">Generative AI</span><span class="skill">LLaMA Models</span><span class="skill">NLP (NLTK)</span><span class="skill">Scikit-learn</span><span class="skill">Pandas</span></div>
+            </div>
+
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">Cloud & DevOps</div>
+                <div><span class="skill">AWS</span><span class="skill">Docker</span><span class="skill">Nginx</span><span class="skill">CI/CD</span></div>
+            </div>
+
+            <div class="glass p-4">
+                <div class="font-semibold mb-3">Tools</div>
+                <div><span class="skill">Git</span><span class="skill">GitHub</span><span class="skill">Power BI</span><span class="skill">Postman</span><span class="skill">Selenium</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Internship Experience</h3>
+        <div class="glass p-6">
+            <div class="font-semibold">Data Science & Machine Learning Intern – L1 Associate Software Developer</div>
+            <div class="muted">Infotact Solutions, Bengaluru — Jan 2025 – May 2025</div>
+            <ul class="mt-4 list-disc ml-6 muted">
+                <li>Worked on end-to-end Data Science, ML and AI projects including model development and deployment.</li>
+                <li>Built sentiment analysis and regression models, performed EDA and preprocessing.</li>
+                <li>Created dashboards and visual reports for stakeholders (Power BI).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Projects</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- 1 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">Sentiment Analysis (NLP)</h4>
+                        <div class="muted text-sm">Python · NLP · NLTK · Scikit-learn · Pandas · NumPy</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24/sentiment-analysis-nlp" target="_blank" class="link-grad">Repo</a>
+                </div>
+                <p class="mt-3 muted">A machine-learning based text-processing model to classify text as positive, negative or neutral. Includes tokenization, stopword removal, TF-IDF vectorization, training (Logistic Regression), evaluation and a simple UI for testing.</p>
+            </article>
+
+            <!-- 2 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">Real Estate Price Prediction</h4>
+                        <div class="muted text-sm">Python · Pandas · NumPy · Scikit-learn · AWS</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24/real-estate-price-prediction" target="_blank" class="link-grad">Repo</a>
+                </div>
+                <p class="mt-3 muted">Regression-based model predicting property prices using feature engineering and linear regression. Preprocessing, model evaluation, and deployment demo on AWS EC2 with Nginx.</p>
+            </article>
+
+            <!-- 3 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">MERN Task Manager App</h4>
+                        <div class="muted text-sm">MongoDB · Express · React · Node</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="link-grad">GitHub</a>
+                </div>
+                <p class="mt-3 muted">Full-stack CRUD task manager with authentication and responsive UI. Features task creation, editing, deletion and status updates. <a href="https://mern-task-manager-app-deploy-ui-inky.vercel.app/" class="underline muted" target="_blank">Live demo →</a></p>
+            </article>
+
+            <!-- 4 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">LinkedIn Post Generator (LLaMA 3.2)</h4>
+                        <div class="muted text-sm">Python · Generative AI · LLaMA · Streamlit</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="link-grad">GitHub</a>
+                </div>
+                <p class="mt-3 muted">Generative AI tool using LLaMA 3.2 to create professional LinkedIn posts from short prompts. Includes prompt engineering and a Streamlit UI for editing outputs.</p>
+            </article>
+
+            <!-- 5 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">AI Chatbot using Gemini API</h4>
+                        <div class="muted text-sm">Python · Flask · Gemini API · JavaScript</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="link-grad">GitHub</a>
+                </div>
+                <p class="mt-3 muted">Context-aware chatbot leveraging the Gemini API. Flask backend manages session state and context; frontend provides conversational UI for FAQs and demos.</p>
+            </article>
+
+            <!-- 6 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">HR Analytics Dashboard</h4>
+                        <div class="muted text-sm">Power BI · Python · Excel</div>
+                    </div>
+                    <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="link-grad">GitHub</a>
+                </div>
+                <p class="mt-3 muted">Interactive dashboards for workforce analytics (attrition, hiring, KPIs). Visualizations and insights built with Power BI and Python preprocessing.</p>
+            </article>
+
+            <!-- 7 -->
+            <article class="project-card glass p-5">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h4 class="font-semibold">Real-Time Drowsiness Detection & Alerts</h4>
+                        <div class="muted text-sm">Python · OpenCV · dlib · Twilio · Power BI</div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/10Rxt9GlmY0sHSqm3APrpEBu0ex1SEfUR/view" target="_blank" class="link-grad">Research Paper</a>
+                </div>
+                <p class="mt-3 muted">EAR-based drowsiness detector with speed simulation, buzzer and Twilio SMS alerts. Real-time video processing, logging (CSV) and Power BI dashboards for visualization. Achieved ~95% accuracy. <a href="https://drive.google.com/file/d/10Rxt9GlmY0sHSqm3APrpEBu0ex1SEfUR/view" class="underline muted" target="_blank">Read paper →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Education</h3>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="glass p-4">
+                <div class="font-semibold">MSc Computer Science</div>
+                <div class="muted">Modern College of Arts, Science & Commerce, Pune (2023 – 2025)</div>
+                <div class="mt-2">Percentage: 94%</div>
+            </div>
+            <div class="glass p-4">
+                <div class="font-semibold">BSc Computer Science</div>
+                <div class="muted">St. Mira's College, Pune (2020 – 2023)</div>
+                <div class="mt-2">Percentage: 76.74%</div>
+            </div>
+            <div class="glass p-4">
+                <div class="font-semibold">HSC / SSC</div>
+                <div class="muted">Rani Laxmibai Mulinchi Sainiki Shala / Genba Sopanrao Moze School</div>
+                <div class="mt-2">HSC: 52.16% · SSC: 83.40%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Certifications & Activities</h3>
+        <div class="glass p-4">
+            <ul class="list-disc ml-6 muted">
+                <li>AWS Cloud Foundation – AWS</li>
+                <li>Java Full Stack Certification (Accenture / NASSCOM / Vinsys) – 2025</li>
+                <li>Frontend Web Development Intern – IBM SkillsBuild</li>
+                <li>Website Development Intern – Tri Polarcon Pvt. Ltd.</li>
+                <li>Completed Java Full Stack Course – SSPU Pune</li>
+                <li>Divisional-level Chess Player · Winner – Singing Competition</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SOFT SKILLS & HOBBIES -->
+    <section id="extra" class="container py-8">
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="glass p-4"><h4 class="font-semibold">Soft Skills</h4><p class="muted mt-2">Time Management · Problem Solving · Adaptability · Communication · Analytical Thinking · Teaching Ability</p></div>
+            <div class="glass p-4"><h4 class="font-semibold">Interests</h4><p class="muted mt-2">Singing · Cycling · Coding · Teaching · Reading Self-Help Books</p></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container py-8">
+        <h3 class="text-2xl neon mb-4">Get In Touch</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass p-6">
+                <div class="font-semibold">Contact Info</div>
+                <div class="muted mt-2">vaishnavikokate247@gmail.com · +91 76665 36559 · Yerwada, Pune</div>
+                <div class="flex items-center gap-3 mt-4">
+                    <a href="https://linkedin.com/in/vaishnavi-kokate24" target="_blank" class="text-lg muted"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/VAISHNAVIKOKATE24" target="_blank" class="text-lg muted"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="glass p-6">
+                <form id="contactForm">
+                    <input name="name" placeholder="Name" class="w-full p-3 rounded bg-transparent border border-white/6 mb-3" required />
+                    <input name="email" type="email" placeholder="Email" class="w-full p-3 rounded bg-transparent border border-white/6 mb-3" required />
+                    <textarea name="message" placeholder="Message" rows="4" class="w-full p-3 rounded bg-transparent border border-white/6 mb-3" required></textarea>
+                    <button type="submit" class="px-4 py-3 rounded text-white" style="background:var(--grad-start);background-image:var(--main-grad)">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="py-6 text-center muted">© 2025 Vaishnavi Kokate  ️</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // Theme init and toggle
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+    const dot = toggle.querySelector('.dot');
+
+    function applyTheme(theme){
+      if(theme === 'light'){
+        body.classList.remove('dark'); body.classList.add('light');
+        toggle.classList.remove('on');
+        toggle.setAttribute('aria-pressed','false');
+        dot.innerText = '☀️';
+      } else {
+        body.classList.remove('light'); body.classList.add('dark');
+        toggle.classList.add('on');
+        toggle.setAttribute('aria-pressed','true');
+        dot.innerText = '🌙';
+      }
+    }
+
+    let saved = localStorage.getItem('vk_theme') || 'dark';
+    applyTheme(saved);
+
+    toggle.addEventListener('click', () => {
+      saved = (saved === 'dark') ? 'light' : 'dark';
+      localStorage.setItem('vk_theme', saved);
+      applyTheme(saved);
+    });
+
+    // Mobile menu basic
+    const mobileBtn = document.getElementById('mobileBtn');
+    let mobileOpen = false;
+    mobileBtn && mobileBtn.addEventListener('click', () => {
+      mobileOpen = !mobileOpen;
+      if(mobileOpen){
+        const sheet = document.createElement('div');
+        sheet.id = 'mobileSheet';
+        sheet.style.position = 'fixed';
+        sheet.style.right = '1rem';
+        sheet.style.top = '64px';
+        sheet.style.background = body.classList.contains('dark') ? 'rgba(8,12,28,0.9)' : '#fff';
+        sheet.style.color = body.classList.contains('dark') ? '#e6eef8' : '#0f172a';
+        sheet.style.backdropFilter = 'blur(6px)';
+        sheet.style.borderRadius = '10px';
+        sheet.style.padding = '12px';
+        sheet.style.boxShadow = '0 10px 30px rgba(2,6,23,0.4)';
+        sheet.innerHTML = '<a class="block py-2 px-3" href="#about">About</a><a class="block py-2 px-3" href="#skills">Skills</a><a class="block py-2 px-3" href="#projects">Projects</a><a class="block py-2 px-3" href="#contact">Contact</a>';
+        document.body.appendChild(sheet);
+      } else {
+        const s = document.getElementById('mobileSheet');
+        s && s.remove();
+      }
+    });
+
+    // Contact form demo
+    document.getElementById('contactForm')?.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Message simulated — replace with backend integration when ready.');
+      e.target.reset();
+    });
+</script>
+</body>
+</html>
