@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sharayu Kamble — Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --accent: #8A4DFF;
+            --accent-2: #4B6FFF;
+            --muted: #98A0B3;
+            --glass: rgba(255,255,255,0.14);
+            --glass-2: rgba(255,255,255,0.6);
+            --card-radius: 14px;
+        }
+
+        /* Page background (your uploaded image) + soft gradient overlay */
+
+        html,body{
+            height:100%;
+            margin:0;
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            color: #0b1220;
+            background-image:
+                    linear-gradient(180deg, rgba(10,7,30,0.55), rgba(6,6,18,0.55)),
+                    url('Image/backimage.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        /* page container spacing */
+        .page-wrap{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+        }
+
+        /* NAVBAR - translucent / glass */
+        .navbar{
+            background: linear-gradient(180deg, rgba(73, 59, 59, 0.18), rgba(255,255,255,0.02));
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 6px 24px rgba(2,6,23,0.35);
+        }
+        .navbar .navbar-brand{
+            font-weight:700;
+            color: white;
+            letter-spacing:0.2px;
+        }
+        .navbar .nav-link{ color: rgba(255,255,255,0.9); }
+        .navbar .nav-link:hover{ color: white; text-decoration:underline; }
+
+        /* HERO */
+        header.hero {
+            padding: 56px 0;
+        }
+        .hero .overlay {
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.06));
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 12px 40px rgba(3,6,25,0.6);
+            border: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(6px);
+            color: #eef3ff;
+        }
+
+        .profile-photo{
+            width:160px;
+            height:160px;
+            border-radius:50%;
+            object-fit:cover;
+            border:6px solid rgba(255,255,255,0.18);
+            box-shadow: 0 10px 30px rgba(6,8,20,0.6);
+            transition:transform .25s ease;
+        }
+        .profile-photo:hover{ transform: translateY(-6px) scale(1.03); }
+
+        header h1{
+            color: #fff;
+            font-size:2.2rem;
+            margin-bottom:6px;
+            font-weight:700;
+            text-shadow: 0 8px 30px rgba(74, 52, 255, 0.12);
+        }
+        header .lead { color: rgba(230,230,255,0.9); }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(90deg,var(--accent),var(--accent-2));
+            border:0;
+            box-shadow: 0 8px 20px rgba(75,111,255,0.18);
+            border-radius: 12px;
+            padding:10px 18px;
+            font-weight:600;
+        }
+        .btn-outline-primary{
+            color: white;
+            border-color: rgba(255,255,255,0.12);
+            background: transparent;
+            border-radius:12px;
+        }
+        .btn-light.border{
+            background: rgba(255,255,255,0.9);
+            color: #111;
+            border-radius:12px;
+        }
+
+        /* Info card */
+        .card-ghost{
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            border: 1px solid white;
+            color: #eef3ff;
+        }
+        .section-title{ font-weight:700; color: #f2f6ff; }
+
+        /* Main content cards */
+        main.container{
+            padding-top: 36px;
+            padding-bottom: 72px;
+            color: #e6eefc;
+        }
+        .card{
+            border-radius: var(--card-radius);
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.04);
+            color: #e9f0ff;
+        }
+        .card p, .card h5 { color: #e6eefc; }
+
+        /* Skills list */
+        .list-group-item {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: none;
+            color: #e8f1ff;
+        }
+
+        /* Certifications carousel: Figma-like cards */
+        .cert-thumb{
+            height:280px;
+            object-fit:cover;
+            border-radius:12px;
+            transition: transform .35s ease, box-shadow .35s ease;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .cert-card{
+            border-radius:12px;
+            overflow:hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        .cert-card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(10,12,40,0.5);
+        }
+
+        /* Carousel controls style */
+        .carousel-control-prev-icon, .carousel-control-next-icon{
+            filter: invert(1);
+            background-color: rgba(10,10,20,0.25);
+            padding: 14px;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer.bg-white{
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            border-top: 1px solid rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 991px){
+            .hero .overlay{ padding:18px; }
+            header h1{ font-size:1.6rem; }
+            .profile-photo{ width:128px; height:128px; }
+        }
+
+        /* subtle floating animation for accents */
+        .float-up{
+            animation: floatUp 6s ease-in-out infinite;
+        }
+        @keyframes floatUp{
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="page-wrap">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sharayu Kamble</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#internship">Internships</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / HOME -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="overlay p-4 rounded-3 shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <!-- replace src with your real photo file path if you have one -->
+                        <img src="Image\Sharu.jpg" alt="Profile" class="profile-photo mb-3 float-up">
+                        <h1 class="">Sharayu Mahadev Kamble</h1>
+                        <p class="lead"><strong>Software Developer</strong></p>
+                        <p class="mb-3" style="max-width:520px; font-size:14px">Full-stack developer experienced in React.js, Java, Spring Boot, SQL databases and AI integrations.</p>
+
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="#projects" class="btn btn-primary">See Projects</a>
+                            <a href="#certifications" class="btn btn-outline-primary">Certifications</a>
+                            <a href="https://drive.google.com/file/d/1LhnpoAolfq9ITzyg0CMfdAo2_bk9RRh0/view?usp=sharing" download id="downloadResume" class="btn btn-light border">Download Resume</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <div class="card card-ghost p-4 shadow-sm glass">
+                            <h5 class="section-title">Contact</h5>
+                            <p class="mb-1"><strong>Email:</strong> sharayukamble2905@gmail.com</p>
+                            <p class="mb-1"><strong>Phone:</strong> +91-9156880715</p>
+                            <p class="mb-0" style="color: white"><strong>Location:</strong> Kolhapur, India</p>
+                            <hr style="border-color: rgba(255,255,255,0.04)">
+
+                            <h6 class="section-title">Quick Links</h6>
+                            <div class="d-flex gap-2 flex-wrap mt-2">
+                                <a class="btn btn-sm btn-outline-secondary" href="#education" style="color: white">Education</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="#skills" style="color: white">Skills</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="#internship" style="color: white">Internship</a>
+                            </div>
+
+                            <div class="mt-3 small text-muted" style="color: white">
+                                <a href="https://linkedin.com/in/sharayu-kamble-2284122b8" target="_blank" style="color:whitesmoke">LinkedIn</a> ·
+                                <a href="https://github.com/Sharu0715" target="_blank" style="color:whitesmoke">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container py-5">
+        <!-- ABOUT -->
+        <section id="about" class="mb-5">
+            <h3 class="section-title">About Me</h3>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p style="font-size: 16px">I am a dedicated CSE student specializing in full-stack development.
+                        I build efficient applications using React, Java, and SQL, with a strong focus on clean design and smooth user experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="mb-5">
+            <h3 class="section-title">Education</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-3 shadow-sm mb-3">
+                        <h5 class="mb-1">B.Tech in Computer Science and Engineering </h5>
+                        <p class="mb-0" style="color: white; font-size: 13.5px;">Kolhapur Institute of Technology’s College of Engineering Kolhapur(Empowred Autonomus) | 2021–2025 | CGPA: 7.50</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card p-3 shadow-sm mb-3">
+                        <h5 class="mb-1">Higher Secondary Certificate</h5>
+                        <p class="mb-0" style="color: white; font-size: 13.5px;">Bhogawati Mahavidhyla Kurukali | 2018-2019 | Percentage: 64.92%</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card p-3 shadow-sm mb-3">
+                        <h5 class="mb-1">Secondary School Certificate</h5>
+                        <p class="mb-0" style="color: white; font-size: 13.5px;">R.B.Patil Vidhylaya Sadoli Khalsa branch Haladi | 2017-2018 | Percentage: 86.60%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="mb-5">
+            <h3 class="section-title">Skills</h3>
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item">Java (Core + OOP)</li>
+                <li class="list-group-item">React.js</li>
+                <li class="list-group-item">HTML5 & CSS3</li>
+                <li class="list-group-item">Bootstrap</li>
+                <li class="list-group-item">JavaScript</li>
+                <li class="list-group-item">Spring Boot </li>
+                <li class="list-group-item">MySQL & PostgreSQL</li>
+                <li class="list-group-item">Git & GitHub</li>
+                <li class="list-group-item">Postman</li>
+                <li class="list-group-item">Docker(Basics)</li>
+                <li class="list-group-item">AI Tools(Cursor,Ollama, Bolt, Replit, Gemini, ChatGPT)</li>
+                <li class="list-group-item">Soft Skills(Communication, Problem-solving, Teamwork )</li>
+                <li class="list-group-item">English (Professional), Marathi (Native Fluent), Hindi (Fluent)</li>
+            </ul>
+        </section>
+
+        <!-- INTERNSHIP -->
+        <section id="internship" class="mb-5">
+            <h3 class="section-title">Internship</h3>
+            <div class="card p-3 shadow-sm">
+                <h5 class="mb-1" style="font-size: medium">Project Intern — ECS Software Technology Pvt. Ltd., Karad</h5>
+                <p class="mb-1" style="font-size: smaller">January 2025 - May 2025. <p/>
+                    <p style="font-size: 15px" >Built reusable React components and optimized UI modules, increasing frontend performance by 20% and reducing UI defects by 15%.</p>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section id="certifications" class="mb-5">
+            <h3 class="section-title mb-3">Certifications</h3>
+
+            <!-- Bootstrap Carousel with multi-card layout -->
+            <div id="certCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3200">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/Chatbot.jpg" class="w-100 cert-thumb" alt="HTML Cert">
+                                    <div class="p-2"><h6 class="mb-0">Chatbot Certificate</h6></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/NPTEL.jpg" class="w-100 cert-thumb" alt="Postgres Cert">
+                                    <div class="p-2"><h6 class="mb-0">NPTEL Certificate</h6></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/Nocode_certificated_page-0001.jpg" class="w-100 cert-thumb" alt="No-code Cert">
+                                    <div class="p-2"><h6 class="mb-0">No-Code Certificate</h6></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/Marathi.jpg" class="w-100 cert-thumb" alt="Chatbot Cert">
+                                    <div class="p-2"><h6 class="mb-0">Social Activity Certificate</h6></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/SHARAYU-KAMBLE-Participant-Certificate%20html_page-0001.jpg" class="w-100 cert-thumb" alt="AI Cert">
+                                    <div class="p-2"><h6 class="mb-0">HTML Certificate</h6></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="cert-card p-2">
+                                    <img src="Image/postgressCertificatd_page-0001.jpg" class="w-100 cert-thumb" alt="Other Cert">
+                                    <div class="p-2"><h6 class="mb-0">Postgress Certificate</h6></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#certCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#certCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="mb-5">
+            <h3 class="section-title">Projects</h3>
+
+            <div class="card p-3 shadow-sm mb-3">
+                <h5>ZP School ERP System</h5>
+                <p class="mb-1" style="font-size: 15px"><strong>Role:</strong> Independent Project</p>
+                <p class="mb-1" style="font-size: 15px"><strong>Tech Stack:</strong> React.js, HTML5, CSS3, JavaScript, Local Storage</p>
+                <p class="mb-0"style="font-size: 14px">Built a Student ERP System with modules for attendance, marks entry and a teacher,student dashboard to improve academic workflows and reduce manual record-keeping.</p>
+            </div>
+
+            <div class="card p-3 shadow-sm">
+                <h5>AI-Based Interview Question Generator</h5>
+                <p class="mb-1" style="font-size: 15px"><strong>Tech Stack:</strong> Java, JDBC, Oracle, AI API</p>
+                <p class="mb-0" style="font-size: 14px">An AI-driven application that generates interview questions and answers using the Gemini AI API.</p>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements" class="mb-5">
+            <h3 class="section-title">Achievements</h3>
+            <ul>
+                <li style="font-size: 15px">Completed multiple online courses including NPTEL and NXT Wave.</li>
+                <li style="font-size: 15px">Led and completed final-year project and independent projects.</li>
+                <li style="font-size: 15px">Internship experience at ECS Software Technology Pvt. Ltd., Karad.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-top">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <p class="mb-0 small text-muted" style="color: rgba(235,240,255,0.7)">© Sharayu Mahadev Kamble • Built with HTML, Bootstrap and CSS.</p>
+            <div>
+                <a class="me-2 text-muted small" href="https://linkedin.com/in/sharayu-kamble-2284122b8" target="_blank" style="color: white">LinkedIn</a>
+                <a class="me-2 text-muted small" href="https://github.com/Sharu0715" target="_blank" style="color: rgba(235,240,255,0.85)">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Smooth close mobile navbar after clicking link
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+            const target = this.getAttribute('href');
+            if(target && target.length>1){
+                e.preventDefault();
+                const el = document.querySelector(target);
+                if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+                const nav = document.querySelector('.navbar-collapse');
+                if(nav && nav.classList.contains('show')){
+                    new bootstrap.Collapse(nav).hide();
+                }
+            }
+        });
+    });
+
+    // Make carousel's cards keyboard accessible: pause on hover
+    const carouselEl = document.getElementById('certCarousel');
+    if(carouselEl){
+        carouselEl.addEventListener('mouseenter', ()=> bootstrap.Carousel.getInstance(carouselEl)?.pause());
+        carouselEl.addEventListener('mouseleave', ()=> bootstrap.Carousel.getInstance(carouselEl)?.cycle());
+    }
+
+    // Initialize carousel if not auto-initialized
+    var certCarousel = bootstrap.Carousel.getOrCreateInstance('#certCarousel', {
+        interval: 3200,
+        ride: 'carousel',
+        pause: false
+    });
+</script>
+</body>
+</html>
