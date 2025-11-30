@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/79d0197015.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Header Section -->
+
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo1.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+
+            <div class="header-text">
+                <p>Full Stack Developer</p>
+                <h1>Hi, I'm <span>Neha</span><br> Ingawale From Pune</h1>
+            </div>
+        </div>
+    </div>
+
+<!-- About Section -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/back1.jpeg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Dedicated and enthusiastic Master’s in Computer Science Postgraduate with a passion for Software Development. Also I have completed Java Full Stack Developement course.As a fresher, I bring a strong foundation in IT and a keen desire to contribute to Software Company.I possess excellent problem- solving abilities, a quick learning curve, and a proactive attitude towards challenges. </p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experiance')">Experiance</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span><br> Web app Development</li>
+                            <li><span>App Development</span><br>Building Android/IOS apps</li>
+                            <li><span>Desktop Application Development</span><br>Creating desktop applications with graphical user interfaces </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experiance">
+                        <ul>
+                            <li><span>2023</span><br>Internship at Technoworld Software</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023</span><br>Full Stack Development Course</li>
+                            <li><span>2023</span><br>Msc Computer Science from Shivaji University</li>
+                            <li><span>2021</span><br>Bsc Computer Science from Solapur University</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Services -->
+
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Software Developer</h2>
+                <p>I build efficient, scalable, and clean software solutions <br>that solve real-world problems with strong logic and precision. </p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-crop-simple"></i>
+                <h2>App Design</h2>
+                <p>App design involves the creation of visual and interactive elements for mobile applications, focusing on providing users with an intuitive, engaging, and efficient experience.</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-app-store"></i>
+                <h2>Desktop Design</h2>
+                <p>Designing a desktop application involves creating a user interface and experience tailored for applications running on desktop operating systems (e.g., Windows, macOS, Linux). </p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio -->
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png" alt="">
+                <div class="layer">
+                    <h3>Social Media App</h3>
+                    <p>The app connects you to the talented people around the world.Download it from play store</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png" alt="">
+                <div class="layer">
+                    <h3>Music App</h3>
+                    <p>The app connects you to the talented people around the world.Download it from play store</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png" alt="">
+                <div class="layer">
+                    <h3>Online Shopping App</h3>
+                    <p>The app connects you to the talented people around the world.Download it from play store</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See More</a>
+    </div>
+</div>
+
+<!-- Contact -->
+
+<div id="contact">
+    <div class="div container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i> nehaingawale48@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i> 8625800421</p>
+                <div class="social-icons">
+                    <!-- <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://facebook.com"><i class="fab fa-twitter-square"></i></a> -->
+                    <a href="https://github.com/nehaingawale"><i class="fa-brands fa-github"></i></i></a>
+                    <a href="https://www.linkedin.com/in/neha-ingawale-0a1324214/"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="images/NehaIngawaleResumee.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright <i class="fas fa-heart"></i></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+
+
+</body>
+</html>
