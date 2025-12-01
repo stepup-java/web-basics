@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dnyaneshwar Kale — Java Full Stack Developer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--test change-->
+  <style>
+    :root {
+      --accent1:#667eea;
+      --accent2:#764ba2;
+      --bg-light:#f7fafc;
+      --bg-dark:#071026;
+      --text-dark:#071026;
+      --muted:#6b7280;
+    }
+
+    /* Global */
+    body {
+      margin:0;
+      font-family:'Poppins',system-ui;
+      background:var(--bg-light);
+      color:var(--text-dark);
+      transition:all .3s ease;
+    }
+    body.dark {
+      background:var(--bg-dark);
+      color:#e6eef8;
+    }
+
+    .container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* Glass Style */
+    .glass {
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(6px);
+      border-radius:12px;
+      border:1px solid rgba(2,6,23,0.05);
+    }
+
+    /* Header */
+    .topbar {
+      position:fixed;
+      top:12px;
+      left:0; right:0;
+      z-index:50;
+    }
+
+    /* HERO Section */
+    .hero {
+      padding-top:120px;
+      padding-bottom:50px;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:32px;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .hero { grid-template-columns:1fr; padding-top:100px; }
+      .hero-right { justify-self:center; }
+    }
+
+    .title { font-size:44px; font-weight:800; margin:0; }
+    .subtitle { margin-top:12px; font-size:17px; color:var(--muted); }
+
+    /* Typing Animation */
+    .name-typing {
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:3px solid rgba(0,0,0,0.08);
+      width:0;
+      animation:typing 2.6s steps(30) forwards,
+               blink .75s step-end infinite;
+    }
+    body.dark .name-typing { border-right:3px solid rgba(255,255,255,0.12); }
+
+    @keyframes typing { from{width:0} to{width:100%} }
+    @keyframes blink { 50%{border-color:transparent} }
+
+    /* Profile Image */
+    .profile {
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      overflow:hidden;
+      border:4px solid rgba(102,126,234,0.15);
+      background:white;
+      box-shadow:0 18px 40px rgba(2,6,23,0.08);
+    }
+    body.dark .profile {
+      border:4px solid rgba(102,126,234,0.25);
+      background:#0b1220;
+    }
+    .profile img { width:100%; height:100%; object-fit:cover; }
+
+    /* Section Spacing */
+    .section { padding:56px 0; }
+
+    /* Centered Heading (H-A Style) */
+    .section-title-center {
+      text-align:center;
+      font-size:26px;
+      font-weight:800;
+      margin-bottom:28px;
+      background:linear-gradient(90deg,var(--accent1),#00c9ff);
+      -webkit-background-clip:text;
+      background-clip: text;
+      color:transparent;
+      position:relative;
+      display:inline-block;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .section-title-center::after {
+      content:"";
+      position:absolute;
+      width:60%;
+      height:3px;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-6px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      animation:underlineFade 2.5s ease-in-out infinite;
+    }
+
+    @keyframes underlineFade {
+      0% { width:25%; opacity:.3; }
+      50% { width:60%; opacity:1; }
+      100% { width:25%; opacity:.3; }
+    }
+
+    /* Cards */
+    .card {
+      padding:18px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(2,6,23,0.05);
+      transition:.3s ease;
+    }
+    body.dark .card {
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Skill Badges */
+    .badge {
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg,rgba(102,126,234,0.06),rgba(118,75,162,0.05));
+      border:1px solid rgba(102,126,234,0.12);
+      font-weight:700;
+      margin:6px 6px 0 0;
+    }
+
+    .badge-bounce {
+      animation:badge-hover 2.6s ease-in-out infinite;
+    }
+
+    @keyframes badge-hover {
+      0% { transform:translateY(0); }
+      25% { transform:translateY(-6px); }
+      50% { transform:translateY(0); }
+      75% { transform:translateY(-4px); }
+      100% { transform:translateY(0); }
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity:0;
+      transform:translateY(20px);
+      transition:all .7s cubic-bezier(.2,.9,.2,1);
+    }
+    .reveal.in {
+      opacity:1;
+      transform:none;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      font-weight:800;
+      text-decoration:none;
+    }
+    .btn-ghost {
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,0.06);
+      color:var(--muted);
+      text-decoration:none;
+    }
+
+    /* Project Hover */
+    .project-card:hover {
+      transform:translateY(-8px) scale(1.03);
+      border-color:var(--accent1);
+      box-shadow:0 20px 40px rgba(102,126,234,0.25);
+      background:linear-gradient(135deg,rgba(102,126,234,0.08),rgba(118,75,162,0.09));
+    }
+  </style>
+</head>
+
+<body class="light">
+
+  <!-- HEADER -->
+  <div class="topbar">
+    <div class="container">
+      <div class="glass px-4 py-3 flex items-center justify-between">
+
+        <div class="brand">
+          <div style="display:flex;flex-direction:column;line-height:1.2">
+            <span style="font-size:13px;font-weight:700">Dnyaneshwar Kale</span>
+            <span style="
+              font-size:11px;
+              font-weight:600;
+              background:linear-gradient(90deg,#667eea,#764ba2);
+              -webkit-background-clip:text;
+              background-clip:text-dark;
+              color:transparent;">
+              Java Full Stack Developer
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <nav class="hidden md:block">
+            <a href="#home" style="margin-left:12px">Home</a>
+            <a href="#about" style="margin-left:12px">About</a>
+            <a href="#skills" style="margin-left:12px">Skills</a>
+            <a href="#projects" style="margin-left:12px">Projects</a>
+            <a href="#education" style="margin-left:12px">Education</a>
+            <a href="#contact" style="margin-left:12px">Contact</a>
+          </nav>
+
+          <div id="themeToggle" style="
+            cursor:pointer;padding:6px 8px;border-radius:999px;
+            background:linear-gradient(90deg,#eef2ff,#e6f0ff);
+            display:flex;align-items:center;gap:8px">
+            <div style="width:10px;height:10px;border-radius:999px;
+                 background:linear-gradient(90deg,var(--accent1),var(--accent2))"></div>
+            <div id="themeLabel" style="font-weight:700;color:var(--text-dark)">Light</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero container" style="margin-top:28px">
+    <div class="reveal">
+      <h1 class="title"><span class="name-typing">Dnyaneshwar Kale</span></h1>
+
+      <h3 style="
+        font-size:22px;font-weight:700;margin-top:10px;
+        background:linear-gradient(90deg,#667eea,#764ba2);
+        -webkit-background-clip:text;background-clip:text;color:transparent;">
+        Java Full Stack Developer
+      </h3>
+
+      <p class="subtitle">
+        Passionate Java Full Stack Developer skilled in Spring Boot, Angular,
+        REST APIs, MySQL, and building scalable applications.
+      </p>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#contact" class="btn-primary">📩 Get In Touch</a>
+
+        <a id="downloadResume"
+           href="https://drive.google.com/file/d/1hwZZepkVV7kA5m07_TvhBmjfSMTQ0KsM/view"
+           target="_blank"
+           class="btn-ghost">
+           ⬇ Download Resume
+        </a>
+      </div>
+
+      <div style="margin-top:18px">
+        <span class="badge badge-bounce">Java</span>
+        <span class="badge badge-bounce">Spring Boot</span>
+        <span class="badge badge-bounce">Angular</span>
+        <span class="badge badge-bounce">MySQL</span>
+      </div>
+    </div>
+
+    <div class="hero-right reveal" style="display:flex;align-items:center;justify-content:center">
+      <div class="profile">
+        <img src="./Dnyaneshwars.jpg" alt="Dnyaneshwar">
+      </div>
+    </div>
+  </section>
+
+<!-- END OF PART 1 -->
+<!-- ========================================= -->
+<!-- ABOUT SECTION -->
+<!-- ========================================= -->
+<section id="about" class="section container">
+  <div class="reveal">
+
+    <h2 class="section-title-center">About Me</h2>
+
+    <div class="card" style="padding:20px">
+      <p style="line-height:1.8; font-size:15px">
+        Enthusiastic Java Full Stack Developer with strong knowledge of Core Java, OOP concepts,
+        SQL/MySQL, Spring Boot, Angular, HTML, CSS, and JavaScript. Skilled in building end-to-end
+        applications, integrating frontend and backend components, and writing clean, maintainable,
+        and efficient code. Possess a strong problem-solving mindset and eager to contribute to
+        real-world software development within a collaborative, growth-oriented environment.
+      </p>
+
+      <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:14px; font-size:15px">
+        <div style="display:flex;align-items:center;gap:8px">📧  
+          <span>dnyaneshwarkale0105@gmail.com</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">💼  
+          <a href="https://linkedin.com/in/dnyaneshwar-kale-617b63239" 
+             target="_blank" style="text-decoration:underline">
+            LinkedIn
+          </a>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">🧑‍💻  
+          <a href="https://github.com/dnyaneshwarkale-dev" 
+             target="_blank" style="text-decoration:underline">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- SKILLS SECTION -->
+<!-- ========================================= -->
+<section id="skills" class="section container">
+  <div class="reveal">
+
+    <h2 class="section-title-center">Skills</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Programming Languages -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">💻 Programming Languages</h3>
+        <span class="badge badge-bounce">Java</span>
+        <span class="badge badge-bounce">JavaScript</span>
+        <span class="badge badge-bounce">SQL</span>
+      </div>
+
+      <!-- Backend -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">⚙ Backend Technologies</h3>
+        <span class="badge badge-bounce">Spring Boot</span>
+        <span class="badge badge-bounce">Hibernate</span>
+        <span class="badge badge-bounce">REST APIs</span>
+        <span class="badge badge-bounce">JDBC</span>
+        <span class="badge badge-bounce">OOP Concepts</span>
+      </div>
+
+      <!-- Frontend -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">🎨 Frontend Technologies</h3>
+        <span class="badge badge-bounce">Angular</span>
+        <span class="badge badge-bounce">HTML5</span>
+        <span class="badge badge-bounce">CSS3</span>
+        <span class="badge badge-bounce">JavaScript</span>
+      </div>
+
+      <!-- Databases -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">🛢 Databases</h3>
+        <span class="badge badge-bounce">MySQL</span>
+        <span class="badge badge-bounce">MongoDB</span>
+      </div>
+
+      <!-- Tools -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">🧰 Tools & Platforms</h3>
+        <span class="badge badge-bounce">Git</span>
+        <span class="badge badge-bounce">GitHub</span>
+        <span class="badge badge-bounce">Postman</span>
+        <span class="badge badge-bounce">Docker</span>
+        <span class="badge badge-bounce">IntelliJ IDEA</span>
+        <span class="badge badge-bounce">VS Code</span>
+      </div>
+
+      <!-- Concepts -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">📚 Core Concepts</h3>
+        <span class="badge badge-bounce">MVC Architecture</span>
+        <span class="badge badge-bounce">CRUD Operations</span>
+        <span class="badge badge-bounce">API Integration</span>
+        <span class="badge badge-bounce">Data Structures</span>
+      </div>
+
+      <!-- AI Tools -->
+      <div class="card">
+        <h3 style="font-weight:700;margin-bottom:8px">🤖 AI Tools</h3>
+        <span class="badge badge-bounce">ChatGPT</span>
+        <span class="badge badge-bounce">Gemini</span>
+        <span class="badge badge-bounce">Copilot</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- PROJECTS SECTION (Professional Format) -->
+<!-- ========================================= -->
+<section id="projects" class="section container">
+  <div class="reveal">
+
+    <h2 class="section-title-center">Projects & Experience</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card card">
+        <h3 class="font-bold text-xl mb-2">🛒 Dynamic Corporate Website (E-Commerce Module)</h3>
+
+        <ul style="font-size:14px; line-height:1.7; margin-left:16px;">
+          <li>• Developed a complete product listing, product detail, and purchase request flow.</li>
+          <li>• Implemented backend modules using Core Java, OOP principles, JDBC, and MySQL.</li>
+          <li>• Designed and optimized relational database schema with efficient CRUD operations.</li>
+          <li>• Built responsive UI using HTML, CSS, and JavaScript for smooth navigation.</li>
+        </ul>
+
+        <div style="margin-top:14px;">
+          <strong>Tech Stack:</strong>
+          <span class="badge">Java</span>
+          <span class="badge">JDBC</span>
+          <span class="badge">MySQL</span>
+          <span class="badge">HTML/CSS/JS</span>
+        </div>
+      </div>
+
+
+      <!-- PROJECT 2 -->
+      <div class="project-card card">
+        <h3 class="font-bold text-xl mb-2">📊 Smart Expense Tracker (Full-Stack Application)</h3>
+
+        <ul style="font-size:14px; line-height:1.7; margin-left:16px;">
+          <li>• Designed a full-stack expense tracking system supporting daily, weekly, and monthly analytics.</li>
+          <li>• Planned and structured REST APIs using Spring Boot for expenses, categories, summaries.</li>
+          <li>• Designed MySQL schemas for expenses, budget data, and category relationships.</li>
+          <li>• Developed Angular UI for dashboards, charts, and interactive filtering modules.</li>
+        </ul>
+
+        <div style="margin-top:14px;">
+          <strong>Tech Stack:</strong>
+          <span class="badge">Spring Boot</span>
+          <span class="badge">Angular</span>
+          <span class="badge">MySQL</span>
+        </div>
+      </div>
+
+
+      <!-- PROJECT 3 -->
+      <div class="project-card card">
+        <h3 class="font-bold text-xl mb-2">👨‍💼 Employee Management System</h3>
+
+        <ul style="font-size:14px; line-height:1.7; margin-left:16px;">
+          <li>• Developed REST APIs for employee CRUD operations using Spring Boot.</li>
+          <li>• Built Angular UI with employee forms, validation, sorting, filtering, and pagination.</li>
+          <li>• Integrated backend with MySQL using JPA/Hibernate for seamless operations.</li>
+          <li>• Improved usability with optimized fetching, pagination, and client-side UI updates.</li>
+        </ul>
+
+        <div style="margin-top:14px;">
+          <strong>Tech Stack:</strong>
+          <span class="badge">Spring Boot</span>
+          <span class="badge">Angular</span>
+          <span class="badge">MySQL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- END OF PART 2 -->
+<!-- ========================================= -->
+<!-- EDUCATION SECTION -->
+<!-- ========================================= -->
+<section id="education" class="section container">
+  <div class="reveal">
+
+    <h2 class="section-title-center">Education</h2>
+
+    <div class="grid gap-6">
+
+      <!-- BE -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">
+          🎓 Bachelor of Engineering (B.E.) — Electronics & Telecommunication
+        </h3>
+        <p style="font-size:14px; line-height:1.7">
+          Smt. Kashibai Navale College of Engineering, Pune  
+          <br> 2024  
+          <br><strong>CGPA: 7.95 / 10</strong>
+        </p>
+      </div>
+
+      <!-- HSC -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">
+          🏫 HSC — Science
+        </h3>
+        <p style="font-size:14px; line-height:1.7">
+          Dnyanopasak College, Parbhani  
+          <br> Marks: <strong>71.20%</strong> (2020)
+        </p>
+      </div>
+
+      <!-- SSC -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">
+          📘 SSC
+        </h3>
+        <p style="font-size:14px; line-height:1.7">
+          Late Raosaheb Jamkar Secondary & Higher Secondary School, Parbhani  
+          <br> Marks: <strong>87.20%</strong> (2018)
+        </p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">
+          📜 Certifications
+        </h3>
+        <p style="font-size:14px;">
+          • Java Full Stack Development — Seed Infotech, Pune
+        </p>
+      </div>
+
+      <!-- Strengths -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">💪 Strengths</h3>
+        <span class="badge badge-bounce">Problem Solving</span>
+        <span class="badge badge-bounce">Logical Thinking</span>
+        <span class="badge badge-bounce">Communication</span>
+        <span class="badge badge-bounce">Time Management</span>
+        <span class="badge badge-bounce">Team Collaboration</span>
+      </div>
+
+      <!-- Languages -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:8px">🌐 Languages</h3>
+        <span class="badge badge-bounce">English</span>
+        <span class="badge badge-bounce">Hindi</span>
+        <span class="badge badge-bounce">Marathi</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- CONTACT SECTION -->
+<!-- ========================================= -->
+<section id="contact" class="section container">
+  <div class="reveal">
+
+    <h2 class="section-title-center">📩 Get In Touch</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Contact Info -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">
+          Let's Connect
+        </h3>
+
+        <p style="font-size:14px; line-height:1.7; margin-bottom:14px">
+          Feel free to reach out for opportunities, collaboration, or project discussions.
+        </p>
+
+        <p>📧 <strong>dnyaneshwarkale0105@gmail.com</strong></p>
+
+        <p style="margin-top:10px">🔗  
+          <a href="https://linkedin.com/in/dnyaneshwar-kale-617b63239" 
+             target="_blank" style="text-decoration:underline">
+            LinkedIn
+          </a>
+        </p>
+
+        <p style="margin-top:6px">💻  
+          <a href="https://github.com/dnyaneshwarkale-dev" 
+             target="_blank" style="text-decoration:underline">
+            GitHub
+          </a>
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="card">
+        <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Send a Message</h3>
+
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required
+            class="w-full mb-3 px-3 py-2 rounded border border-gray-300">
+
+          <input type="email" placeholder="Your Email" required
+            class="w-full mb-3 px-3 py-2 rounded border border-gray-300">
+
+          <input type="text" placeholder="Contact Number" required
+            class="w-full mb-3 px-3 py-2 rounded border border-gray-300">
+
+          <textarea rows="4" placeholder="Your Message" required
+            class="w-full mb-4 px-3 py-2 rounded border border-gray-300"></textarea>
+
+          <button type="submit" class="btn-primary w-full">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+<footer class="section" 
+  style="padding:30px 0;text-align:center;font-size:14px;opacity:0.7">
+  © 2025 Dnyaneshwar Kale — Portfolio Website
+</footer>
+
+
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+<script>
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+    }
+  });
+},{threshold:0.2});
+reveals.forEach(el=>observer.observe(el));
+
+
+// Theme toggle
+const toggle = document.getElementById('themeToggle');
+const label = document.getElementById('themeLabel');
+
+toggle.onclick = () => {
+  document.body.classList.toggle('dark');
+
+  if(document.body.classList.contains('dark')){
+    label.textContent = "Dark";
+  } else {
+    label.textContent = "Light";
+  }
+};
+
+
+// Contact Form (dummy)
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Message Sent Successfully!");
+  this.reset();
+});
+
+</script>
+
+</body>
+</html>

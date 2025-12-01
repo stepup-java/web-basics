@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Kalaskar - Java Backend Developer Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #A970FF; /* soft purple */
+            --accent-soft: rgba(169, 112, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #1e1b4b 0, #020617 45%, #020617 100%);
+            color: #e5e7eb;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(14px);
+        }
+
+        .accent-text {
+            color: var(--accent);
+        }
+
+        .accent-border {
+            border-color: var(--accent);
+        }
+
+        .accent-bg {
+            background-color: var(--accent);
+        }
+
+        .accent-pill {
+            background-color: var(--accent-soft);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            border-radius: 9999px;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-outline {
+            border-radius: 9999px;
+            padding: 0.75rem 1.75rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            transition: all 0.15s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(15, 23, 42, 1);
+            transform: translateY(-1px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.95rem;
+            color: #cbd5f5;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid var(--accent);
+            animation: typing 3.5s steps(30, end), caret 0.8s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes caret {
+            50% { border-color: transparent; }
+        }
+
+        .section-separator {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(51, 65, 85, 0.9), transparent);
+            margin: 2.5rem 0;
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all 0.4s ease;
+        }
+
+        .stagger-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-input {
+            background-color: rgba(15, 23, 42, 0.98);
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            color: #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(169, 112, 255, 0.5);
+        }
+
+        .profile-img {
+            object-fit: cover;
+            object-position: 50% 20%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-[var(--accent-soft)] flex items-center justify-center text-sm font-semibold text-slate-100">
+                PK
+            </div>
+            <span class="text-sm text-slate-300">Java Backend Developer</span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-slate-200 text-xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-slate-950/95">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="min-h-screen flex items-center">
+    <div class="max-w-6xl mx-auto px-4 pt-24 pb-16 grid md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-5 stagger-item">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-400">
+                Hello, I'm
+            </p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-50">
+                Prajwal <span class="accent-text">Kalaskar</span>
+            </h1>
+            <div class="text-lg md:text-xl text-slate-200 code-font typing-effect">
+                Java Backend Developer
+            </div>
+            <p class="text-slate-300 leading-relaxed text-[0.98rem]">
+                I build clean, scalable, and maintainable REST APIs using Java and Spring Boot.
+                I enjoy turning backend logic into production-ready systems with a focus on performance,
+                clarity, and real-world problem solving.
+            </p>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+                <a href="#contact" class="btn-primary">
+                    Get In Touch
+                </a>
+                <a href="https://drive.google.com/file/d/1pRh5EqfcvmiOKELxkVAERP0sFb1O8j6Y/view?usp=drive_link"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-outline">
+                    Download Resume
+                </a>
+            </div>
+
+            <div class="flex gap-4 pt-3 text-slate-300 text-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-[var(--accent)]"></i>
+                    <span>Pune, India</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-envelope text-[var(--accent)]"></i>
+                    <span class="break-all">prajwalkalaskar93@gmail.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stagger-item">
+            <div class="glass rounded-2xl p-6 flex flex-col items-center gap-4">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-[var(--accent)]">
+                    <img src="image/Prajwal_web.png" alt="Prajwal" class="w-full h-full profile-img">
+                </div>
+                <div class="text-center space-y-1">
+                    <p class="text-sm uppercase tracking-[0.2em] text-slate-400">
+                        Backend Focused
+                    </p>
+                    <p class="text-sm text-slate-300">
+                        Java • Spring Boot • REST APIs • MySQL
+                    </p>
+                </div>
+
+                <div class="w-full border-t border-slate-800 my-3"></div>
+
+                <div class="w-full flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring Boot</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring Security</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Hibernate / JPA</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">MySQL</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">REST APIs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- About -->
+<section id="about" class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">About Me</h2>
+
+        <div class="glass rounded-2xl p-6 md:p-8 stagger-item">
+            <p class="text-slate-200 text-[0.98rem] leading-relaxed mb-4">
+                I am a Java Backend Developer with hands-on experience in building RESTful APIs and
+                database-driven applications. During my 6-month internship, I worked on real backend modules,
+                focusing on clean, maintainable code and performance optimization.
+            </p>
+            <p class="text-slate-200 text-[0.98rem] leading-relaxed mb-4">
+                I have a strong foundation in Core Java (OOPs, Collections, Exception Handling, Java 8 Streams and Lambda),
+                Spring Boot, Hibernate/JPA, and MySQL. I enjoy solving backend challenges, writing efficient queries,
+                and following best practices in API design and debugging.
+            </p>
+
+            <div class="mt-4 grid md:grid-cols-3 gap-4 text-sm text-slate-300">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-[var(--accent)]"></i>
+                    <span>Pune, India</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-envelope text-[var(--accent)]"></i>
+                    <span class="break-all">prajwalkalaskar93@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-phone text-[var(--accent)]"></i>
+                    <span>+91-9359420954</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Skills -->
+<section id="skills" class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Skills & Expertise</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Languages -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-code text-[var(--accent)]"></i> Languages
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Java</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">SQL</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">JavaScript</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">ReactJS</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">JSON</span>
+                </div>
+            </div>
+
+            <!-- Frameworks -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-layer-group text-[var(--accent)]"></i> Frameworks
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring Boot</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring MVC</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring Security</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring Data JPA</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Hibernate</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">JPA</span>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-sitemap text-[var(--accent)]"></i> Architecture
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Microservices</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">REST APIs</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">OOP</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">MVC</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Clean Architecture</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">SOLID Principles</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Event-Driven</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Design Patterns</span>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-database text-[var(--accent)]"></i> Databases
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">MySQL</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">PostgreSQL</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Oracle DB</span>
+                </div>
+            </div>
+
+            <!-- DevOps & Tools -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-tools text-[var(--accent)]"></i> DevOps & Tools
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Git</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">GitHub</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Maven</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Jenkins</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Docker</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Kubernetes</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Postman</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Swagger / OpenAPI</span>
+                </div>
+            </div>
+
+            <!-- AI Tools -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-robot text-[var(--accent)]"></i> AI Tools
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Spring AI</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">ChatGPT</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">GitHub Copilot</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Gemini</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Ollama</span>
+                </div>
+            </div>
+
+            <!-- Testing -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-vial text-[var(--accent)]"></i> Testing
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">JUnit</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Mockito</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Integration Testing</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Unit Testing</span>
+                </div>
+            </div>
+
+            <!-- Cloud -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-cloud text-[var(--accent)]"></i> Cloud
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">AWS</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Azure</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Azure Blob</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Azure CosmosDB</span>
+                </div>
+            </div>
+
+            <!-- Others -->
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <i class="fas fa-cogs text-[var(--accent)]"></i> Others
+                </h3>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-3 py-1 rounded-full accent-pill">Debugging</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Job Monitoring</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Shell Scripting</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Kafka Basics</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">API Optimization</span>
+                    <span class="px-3 py-1 rounded-full accent-pill">Performance Tuning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Experience -->
+<section id="experience" class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Experience</h2>
+
+        <div class="relative pl-6 stagger-item">
+            <div class="absolute left-2 top-2 bottom-2 w-px bg-slate-700/80"></div>
+
+            <div class="relative mb-8">
+                <div class="w-3 h-3 rounded-full bg-[var(--accent)] absolute -left-[7px] top-1.5"></div>
+                <div class="glass rounded-xl p-5 md:p-6">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                        <h3 class="text-lg font-semibold text-slate-50">Backend Developer Intern</h3>
+                        <span class="text-xs font-medium px-3 py-1 rounded-full accent-pill text-slate-200">
+                            6 Months Internship
+                        </span>
+                    </div>
+                    <p class="text-sm text-[var(--accent)] mb-3">
+                        Java Backend Development
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 text-[0.7rem] mb-3 text-slate-200">
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Java</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Spring Boot</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">REST APIs</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">MySQL</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Postman</span>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-slate-200">
+                        <li>• Developed REST APIs using Java & Spring Boot for real backend modules.</li>
+                        <li>• Implemented CRUD operations, authentication flows, and role-based access.</li>
+                        <li>• Designed MySQL schemas and optimized queries for better response time.</li>
+                        <li>• Performed API testing with Postman and prepared API documentation.</li>
+                        <li>• Worked in an Agile environment with sprint tasks, daily updates, reviews, and debugging with senior developers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Projects -->
+<section id="projects" class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Featured Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div class="glass rounded-xl overflow-hidden stagger-item">
+                <div class="h-40 bg-slate-800 relative">
+                    <img src="image/smart_contact_image.png" alt="Smart Contact Manager"
+                         class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4 right-4">
+                        <h3 class="text-lg font-semibold text-slate-50">Smart Contact Manager</h3>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-200 mb-3">
+                        Backend application built with Spring Boot and MySQL to manage contacts, users, and authentication,
+                        with secure JWT-based login and input validation.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 text-[0.7rem] mb-3 text-slate-200">
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Spring Boot</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">MySQL</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">REST APIs</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">JWT</span>
+                    </div>
+
+                    <ul class="text-xs text-slate-300 space-y-1 mb-3">
+                        <li>• Developed authentication, user management, and contact-tracking APIs.</li>
+                        <li>• Integrated JWT-based authentication for secure login.</li>
+                        <li>• Implemented pagination, filtering, and input validation.</li>
+                        <li>• Added global exception handling using <code>@ControllerAdvice</code>.</li>
+                        <li>• Optimized service-layer logic to improve response time.</li>
+                    </ul>
+
+                    <p class="text-[0.75rem] text-slate-400 italic">
+                        GitHub link (add here if hosted)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass rounded-xl overflow-hidden stagger-item">
+                <div class="h-40 bg-slate-800 relative">
+                    <img src="image/Bank_management_image.png" alt="Bank Management System"
+                         class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4 right-4">
+                        <h3 class="text-lg font-semibold text-slate-50">Bank Management System</h3>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-200 mb-3">
+                        Desktop banking application using Java Swing, JDBC, and MySQL with features like account creation,
+                        deposit, withdrawal, fund transfer, and transaction history.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 text-[0.7rem] mb-3 text-slate-200">
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Java</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">Swing</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">JDBC</span>
+                        <span class="px-2.5 py-1 rounded-full accent-pill">MySQL</span>
+                    </div>
+
+                    <ul class="text-xs text-slate-300 space-y-1 mb-3">
+                        <li>• Implemented core banking operations with validation checks.</li>
+                        <li>• Designed relational tables for users, accounts, and transactions.</li>
+                        <li>• Added secure login and transaction history module.</li>
+                        <li>• Performed JDBC-based CRUD operations with proper error handling.</li>
+                    </ul>
+
+                    <p class="text-[0.75rem] text-slate-400 italic">
+                        GitHub link (add here if hosted)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Education -->
+<section id="education" class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Education</h2>
+
+        <div class="space-y-5">
+            <div class="glass rounded-xl p-5 md:p-6 stagger-item">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                    <h3 class="text-lg font-semibold text-slate-50">
+                        Bachelor of Engineering (Computer Science)
+                    </h3>
+                    <span class="text-xs text-slate-300">2024</span>
+                </div>
+                <p class="text-sm text-slate-200">Sant Gadge Baba Amravati University (SGBAU)</p>
+                <p class="text-sm text-slate-200">CGPA: 8.93 / 10</p>
+            </div>
+
+            <div class="glass rounded-xl p-5 md:p-6 stagger-item">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                    <h3 class="text-lg font-semibold text-slate-50">
+                        Certificate: Java Full Stack Development
+                    </h3>
+                    <span class="text-xs text-slate-300">2024</span>
+                </div>
+                <p class="text-sm text-slate-200">Naresh IT, Hyderabad</p>
+                <p class="text-sm text-slate-200">Completed Full Stack Java Course</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Tech Stack Cloud -->
+<section class="py-14">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Tech Stack</h2>
+
+        <div class="glass rounded-2xl p-6 md:p-8 stagger-item">
+            <div class="flex flex-wrap gap-2 justify-center text-xs text-slate-100">
+                <span class="px-3 py-1 rounded-full accent-pill">Java</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Spring Boot</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Spring MVC</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Hibernate / JPA</span>
+                <span class="px-3 py-1 rounded-full accent-pill">REST APIs</span>
+                <span class="px-3 py-1 rounded-full accent-pill">MySQL</span>
+                <span class="px-3 py-1 rounded-full accent-pill">OOPs</span>
+                <span class="px-3 py-1 rounded-full accent-pill">MVC</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Microservices (Basics)</span>
+                <span class="px-3 py-1 rounded-full accent-pill">JWT Authentication</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Collections</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Java 8 Streams</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Git</span>
+                <span class="px-3 py-1 rounded-full accent-pill">GitHub</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Maven</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Postman</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Swagger (Basic)</span>
+                <span class="px-3 py-1 rounded-full accent-pill">IntelliJ IDEA</span>
+                <span class="px-3 py-1 rounded-full accent-pill">Eclipse</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Contact -->
+<section id="contact" class="py-14">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center mb-10 accent-text">Get In Touch</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass rounded-xl p-6 md:p-7 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 text-slate-50">Let's Connect</h3>
+                <p class="text-sm text-slate-200 mb-5">
+                    I’m actively looking for Java Backend Developer opportunities. 
+                    Feel free to reach out for roles, collaborations, or even just a tech conversation!
+                </p>
+
+                <div class="space-y-3 text-sm text-slate-200 mb-5">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-[var(--accent)] text-lg"></i>
+                        <span class="break-all">prajwalkalaskar93@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone text-[var(--accent)] text-lg"></i>
+                        <span>+91-9359420954</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-map-marker-alt text-[var(--accent)] text-lg"></i>
+                        <span>Pune, Maharashtra, India</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <a href="https://www.linkedin.com/in/prajwal-kalaskar-014b30282/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="w-10 h-10 rounded-full accent-pill flex items-center justify-center">
+                        <i class="fab fa-linkedin-in text-slate-100"></i>
+                    </a>
+                    <a href="https://github.com/Prajwalk-20"
+                       target="_blank" rel="noopener noreferrer"
+                       class="w-10 h-10 rounded-full accent-pill flex items-center justify-center">
+                        <i class="fab fa-github text-slate-100"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 md:p-7 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 text-slate-50">Send Me a Message</h3>
+                <form id="contact-form" class="space-y-3 text-sm">
+                    <div>
+                        <input type="text" placeholder="Your Name" class="form-input w-full px-3 py-2 rounded-md">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Your Email" class="form-input w-full px-3 py-2 rounded-md">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Subject" class="form-input w-full px-3 py-2 rounded-md">
+                    </div>
+                    <div>
+                        <textarea rows="4" placeholder="Your Message" class="form-input w-full px-3 py-2 rounded-md resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-800 bg-slate-950/90">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+        <p>&copy; 2025 Prajwal Kalaskar. All rights reserved.</p>
+        <div class="flex gap-4 text-base">
+            <a href="https://www.linkedin.com/in/prajwal-kalaskar-014b30282/"
+               target="_blank" rel="noopener noreferrer"
+               class="hover:text-[var(--accent)]">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Prajwalk-20"
+               target="_blank" rel="noopener noreferrer"
+               class="hover:text-[var(--accent)]">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+
+    // Stagger animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, index * 100);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.stagger-item').forEach(el => observer.observe(el));
+
+    // Dummy form submit
+    document.getElementById('contact-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const original = btn.innerHTML;
+        btn.innerHTML = 'Message Sent!';
+        setTimeout(() => {
+            btn.innerHTML = original;
+            e.target.reset();
+        }, 2500);
+    });
+</script>
+</body>
+</html>
