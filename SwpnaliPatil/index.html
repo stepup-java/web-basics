@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Swapnali Patil - Software Developer Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gradient-neon: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-cyber: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;transition:background-color .3s ease,color .3s ease}
+        .code-font{font-family:'JetBrains Mono',monospace}
+        .dark{background-color:#0f172a;color:#e2e8f0}
+        .glass{background:rgba(30,41,59,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06)}
+        .neon-text{background:var(--gradient-neon);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(102,126,234,.5)}
+        .typing-effect{overflow:hidden;border-right:3px solid;white-space:nowrap;animation:typing 3.5s steps(40,end),blink .75s step-end infinite}
+        @keyframes typing{from{width:0}to{width:100%}}@keyframes blink{50%{border-color:transparent}}
+        .code-bg{background-image:linear-gradient(to right, rgba(102,126,234,.06) 1px, transparent 1px),linear-gradient(to bottom, rgba(102,126,234,.06) 1px, transparent 1px);background-size:40px 40px}
+        .skill-badge{background:linear-gradient(135deg, rgba(102,126,234,.08) 0%, rgba(118,75,162,.06) 100%);backdrop-filter:blur(5px);border:1px solid rgba(102,126,234,.18);transition:all .3s ease}
+        .project-card{transition:all .3s ease;transform-style:preserve-3d;perspective:1000px}
+        .project-card:hover{transform:translateY(-10px) rotateX(5deg);box-shadow:0 20px 40px rgba(102,126,234,.18)}
+        .section-separator{height:2px;background:linear-gradient(to right,transparent,rgba(102,126,234,.35),transparent);margin:2rem 0}
+        .stagger-item{opacity:0;transform:translateY(20px);transition:all .5s ease}
+        .stagger-item.active{opacity:1;transform:translateY(0)}
+        .pulse-glow{animation:pulse-glow 2s infinite}
+        @keyframes pulse-glow{0%{box-shadow:0 0 20px rgba(102,126,234,.7)}50%{box-shadow:0 0 40px rgba(102,126,234,.9)}100%{box-shadow:0 0 20px rgba(102,126,234,.7)}}
+    </style>
+</head>
+<body class="dark">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass px-6 py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold neon-text">SP</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="toggle-switch" id="theme-toggle"></div>
+            <button class="md:hidden" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+    <div class="hidden md:hidden mt-4 pb-4" id="mobile-menu">
+        <div class="flex flex-col space-y-3">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden code-bg pb-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+    <div class="container mx-auto px-6 z-10 text-center">
+        <div class="stagger-item fade-in active">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4"><span class="neon-text">Swapnali Patil</span></h1>
+            <div class="text-xl md:text-2xl mb-8 code-font typing-effect">Software Developer · B.Tech Computer Science (2025)</div>
+            <p class="max-w-2xl mx-auto mb-8 text-lg opacity-90">
+                Motivated Computer Science fresher with strong skills in Java, Python, web development, and database management.
+                Experienced in academic projects focused on cloud security and full-stack development. Quick learner with strong problem-solving ability. :contentReference[oaicite:1]{index=1}
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                    Get In Touch
+                </a>
+                <a href="swapnali__resume.pdf"download class="px-6 py-3 rounded-full glass font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- About -->
+<section id="about" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">About Me</h2>
+        <div class="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-12 stagger-item">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-purple-500/30 pulse-glow">
+                    <!-- Replace with your real image file path -->
+                    <img src="Swapnali.jpg" alt="Swapnali Patil" class="w-full h-half object-cover rounded-full">
+                </div>
+                <div class="flex-1">
+                    <p class="text-lg mb-4">
+                        Motivated Computer Science fresher with strong skills in Java, Python, web development, and database management.
+                        Experienced in academic projects focused on cloud security and full-stack development. Quick learner with problem-solving abilities and eagerness to contribute to a professional development team.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-6">
+                        <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-purple-500"></i><span>Pune, India</span></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-envelope text-purple-500"></i><span>patilswapnali2210@gmail.com</span></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-phone text-purple-500"></i><span>9322586353</span></div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://linkedin.com/in/swapnali-patil-115a112b9" class="mr-4 text-purple-300 hover:underline"><i class="fab fa-linkedin-in mr-2"></i>LinkedIn</a>
+                        <a href="https://github.com/patilswapnali2210-sketch" class="text-purple-300 hover:underline"><i class="fab fa-github mr-2"></i>GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Skills -->
+<section id="skills" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Skills & Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-code text-purple-500 mr-3"></i>Languages</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Java</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Python</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">HTML5</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">CSS3</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-layer-group text-purple-500 mr-3"></i>Frameworks & Tools</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Spring / JEE</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">React.js</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Laravel (PHP)</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">VS Code</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">IntelliJ / Eclipse</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-database text-purple-500 mr-3"></i>Databases</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">MySQL</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Oracle</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Redis</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-tools text-purple-500 mr-3"></i>DevOps & Testing</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Git / GitHub</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Docker (Beginner)</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Postman / REST APIs</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-robot text-purple-500 mr-3"></i>AI & Productivity</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">ChatGPT</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Gemini</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Cursor AI / Ollama</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 stagger-item">
+                <h3 class="text-xl font-semibold mb-4 flex items-center"><i class="fas fa-cogs text-purple-500 mr-3"></i>Concepts</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">OOP</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">DSA</span>
+                    <span class="skill-badge px-3 py-1 rounded-full text-sm">Algorithms</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Experience / Projects -->
+<section id="experience" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Projects & Experience</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card glass rounded-xl p-6 stagger-item">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-semibold">A Secure Data Dynamic and Public Auditing Schema for Cloud Storage</h3>
+                    <span class="text-purple-500">07/2024 - 05/2025</span>
+                </div>
+                <p class="mb-3">Developed a cloud auditing model to ensure data integrity and privacy. Implemented public auditing without exposing user data; focused on reducing overhead and improving scalability for dynamic data.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">Java</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">JEE</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">HTML/CSS/JS</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">AWS</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card glass rounded-xl p-6 stagger-item">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-semibold">Website for Python Notes</h3>
+                    <span class="text-purple-500">09/2023 - 05/2024</span>
+                </div>
+                <p class="mb-3">Built a beginner-friendly learning website with a simple GUI, interactive interface and easy course navigation. Created a resource hub for students to learn Python basics.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">HTML</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">CSS</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">JavaScript</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">Python</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card glass rounded-xl p-6 stagger-item">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-semibold">Smart School ERP System</h3>
+                    <span class="text-purple-500">02/2025 - 04/2025</span>
+                </div>
+                <p class="mb-3">Developed a school management platform for student, attendance and fee management. Implemented secure login, role-based access, efficient CRUD operations and a responsive UI.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">PHP (Laravel)</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">MySQL</span>
+                    <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20">HTML/CSS/JS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Education -->
+<section id="education" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Education</h2>
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-xl p-8 mb-6 stagger-item">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold">B.Tech in Computer Science</h3>
+                    <span class="text-purple-500">08/2021 - 06/2025</span>
+                </div>
+                <div class="mb-2">Brahmdevdada Mane Institute of Technology, Solapur</div>
+                <div class="mb-2">Graduated — 91%</div>
+            </div>
+
+            <div class="glass rounded-xl p-8 mb-6 stagger-item">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold">HSC</h3>
+                    <span class="text-purple-500">05/2020 - 03/2021</span>
+                </div>
+                <div class="mb-2">Matoshri Sundarabai Narahari Korke Kanishta Mahavidyalaya, Sarjapur</div>
+                <div class="mb-2">Percentage — 86%</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Extras: Achievements / Certificates / Languages / Interests -->
+<section class="py-12 relative">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="glass rounded-xl p-6">
+                <h4 class="font-semibold mb-3">Achievements</h4>
+                <ul class="list-disc list-inside">
+                    <li>Badminton Player — College Level (06/2023 - 05/2024)</li>
+                </ul>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <h4 class="font-semibold mb-3">Certificates</h4>
+                <ul class="list-disc list-inside">
+                    <li>Greate Learning Academy — "What is IOT" (Certificate No: ITB-CTFL 126483)</li>
+                </ul>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <h4 class="font-semibold mb-3">Languages & Interests</h4>
+                <div class="mb-2"><strong>Languages:</strong> English (Full professional), Hindi (Full professional), Marathi (Full professional)</div>
+                <div><strong>Interests:</strong> Singing, Watching Sports</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- Contact -->
+<section id="contact" class="py-20 relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass rounded-xl p-8">
+                <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
+                <p class="mb-6">Open to internships and entry-level roles in software development. Reach out to discuss projects or internships.</p>
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-center"><i class="fas fa-envelope text-purple-500 mr-4 text-xl"></i><span>patilswapnali2210@gmail.com</span></div>
+                    <div class="flex items-center"><i class="fas fa-phone text-purple-500 mr-4 text-xl"></i><span>9322586353</span></div>
+                    <div class="flex items-center"><i class="fas fa-map-marker-alt text-purple-500 mr-4 text-xl"></i><span>Pune, India</span></div>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://linkedin.com/in/swapnali-patil-115a112b9" class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center hover:bg-purple-500/30 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/patilswapnali2210-sketch" class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center hover:bg-purple-500/30 transition-colors"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-8">
+                <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                <form id="contact-form">
+                    <div class="mb-4"><input type="text" placeholder="Your Name" class="form-input w-full px-4 py-3 rounded-lg"></div>
+                    <div class="mb-4"><input type="email" placeholder="Your Email" class="form-input w-full px-4 py-3 rounded-lg"></div>
+                    <div class="mb-4"><input type="text" placeholder="Subject" class="form-input w-full px-4 py-3 rounded-lg"></div>
+                    <div class="mb-6"><textarea placeholder="Your Message" rows="4" class="form-input w-full px-4 py-3 rounded-lg resize-none"></textarea></div>
+                    <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 glass">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0"><p>&copy; 2025 Swapnali Patil. All rights reserved.</p></div>
+            <div class="flex space-x-6">
+                <a href="https://linkedin.com/in/swapnali-patil-115a112b9" class="hover:text-purple-500 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/patilswapnali2210-sketch" class="hover:text-purple-500 transition-colors"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    themeToggle?.addEventListener('click', () => { body.classList.toggle('dark'); body.classList.toggle('light'); });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Stagger animation
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('active'), index*100);
+        });
+    }, observerOptions);
+    document.querySelectorAll('.stagger-item').forEach(item => observer.observe(item));
+
+    // Contact form demo behaviour
+    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const button = form.querySelector('button[type="submit"]');
+        const original = button.textContent;
+        button.textContent = 'Message Sent!';
+        button.classList.add('bg-green-500');
+        setTimeout(()=> { button.textContent = original; button.classList.remove('bg-green-500'); form.reset(); }, 2500);
+    });
+</script>
+</body>
+</html>
