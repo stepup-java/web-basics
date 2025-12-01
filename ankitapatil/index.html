@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankita Patil | Software Developer</title>
+    <meta name="description"
+          content="Portfolio of Ankita Patil - Software Developer specializing in Java, Python, and Full-Stack Development.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <!-- Logo -->
+        <a href="#" class="logo">AP</a>
+
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact" class="btn-primary">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <i data-feather="sun" class="sun-icon"></i>
+                <i data-feather="moon" class="moon-icon"></i>
+            </button>
+            <div class="hamburger">
+                <i data-feather="menu"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container hero-container">
+        <div class="hero-content" data-aos="fade-right">
+            <h1 class="name-hero">
+                <span class="first-name">Ankita</span>
+                <br>
+                <span class="last-name">Patil</span>
+            </h1>
+            <h2 class="title-hero">Java Enthusiast <span class="pipe">|</span> Modern Web Solutions <span
+                    class="pipe">|</span> Continuous Innovation</h2>
+            <p class="tagline-hero">
+                Passionate about creating efficient, scalable web applications with modern technologies. Focused on
+                delivering clean code and exceptional user experiences.
+            </p>
+
+            <div class="social-links-hero">
+                <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                <a href="mailto:ankitaspatil05@gmail.com" aria-label="Email"><i data-feather="mail"></i></a>
+            </div>
+
+            <div class="hero-btns">
+                <a href="#projects" class="btn-primary">View Portfolio <i data-feather="arrow-down"
+                                                                          class="btn-icon"></i></a>
+                <!-- Updated Resume Button: Direct Link -->
+                <a href="AnkitaPatil_Resume.pdf" class="btn-outline" target="_blank" download><i
+                        data-feather="download" class="btn-icon"></i> Download Resume</a>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="fade-left">
+            <div class="img-wrapper">
+                <!-- Placeholder for profile image -->
+                <img src="images/profile_image.jpg"
+                     alt="Ankita Patil" class="profile-img">
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i data-feather="arrow-down"></i>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="about-content">
+            <div class="about-text glass-card" data-aos="fade-up">
+                <h3>My Journey</h3>
+                <p>
+                    Java Developer with growing full-stack expertise and strong backend engineering skills passionate about building scalable and secure web applications.
+                    Skilled in Java, Spring Boot, REST APIs, Hibernate/JPA, MySQL, and comfortable working with
+                    frontend technologies like HTML, CSS, JavaScript and React basics.
+                </p>
+                <p>
+                    I focus on writing clean, optimized code and continuously improving performance through smart
+                    problem-solving and DSA knowledge. I understand Agile development, version control (Git), and
+                    API testing to ensure production-ready delivery. Also gaining experience with industrial tools
+                    like Docker, Postman, and CI/CD fundamentals.
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i data-feather="code" class="stat-icon"></i>
+                    <h3>5+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i data-feather="book" class="stat-icon"></i>
+                    <h3>8.28</h3>
+                    <p>MCA CGPA</p>
+                </div>
+                <div class="stat-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i data-feather="award" class="stat-icon"></i>
+                    <h3>5+</h3>
+                    <p>Certifications</p>
+                </div>
+                <!-- Soft Skills Card -->
+                <div class="stat-card glass-card text-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i data-feather="user-check" class="stat-icon"></i>
+                    <h3>Soft Skills</h3>
+                    <p>Proactive & Self-Driven</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="education">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Education</h2>
+        <div class="education-grid" data-aos="fade-up">
+            <div class="edu-card glass-card">
+                <div class="edu-header">
+                    <h3>MCA</h3>
+                    <span class="year">2023 – 2025</span>
+                </div>
+                <p class="institution">Savitribai Phule Pune University</p>
+                <p class="grade">CGPA: 8.28/10</p>
+            </div>
+            <div class="edu-card glass-card">
+                <div class="edu-header">
+                    <h3>B.Sc. Computer Science</h3>
+                    <span class="year">2020 – 2023</span>
+                </div>
+                <p class="institution">Shivaji University, Kolhapur</p>
+                <p class="grade">CGPA: 9.66/10</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+        <div class="skills-grid">
+            <!-- Programming Languages -->
+            <div class="skill-category glass-card" data-aos="fade-up">
+                <h3><i data-feather="terminal"></i> Languages</h3>
+                <div class="skill-tags">
+                    <span>Java</span>
+                    <span>Python</span>
+                    <span>PHP</span>
+                    <span>SQL</span>
+                    <span>C</span>
+                    <span>C++</span>
+                </div>
+            </div>
+
+            <!-- Frameworks -->
+            <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="100">
+                <h3><i data-feather="layers"></i> Frameworks</h3>
+                <div class="skill-tags">
+                    <span>Spring Boot</span>
+                    <span>Django</span>
+                    <span>React</span>
+                </div>
+            </div>
+
+            <!-- Web Tech -->
+            <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="200">
+                <h3><i data-feather="globe"></i> Web Technologies</h3>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>REST APIs</span>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="300">
+                <h3><i data-feather="tool"></i> Tools & Platforms</h3>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>Maven</span>
+                    <span>H2 Database</span>
+                    <span>VS Code</span>
+                    <span>Postman</span>
+                    <span>Eclipse</span>
+                    <span>IntelliJ</span>
+                    <span>AWS (EC2, S3)</span>
+                </div>
+            </div>
+
+            <!-- Concepts -->
+            <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="400">
+                <h3><i data-feather="cpu"></i> Concepts</h3>
+                <div class="skill-tags">
+                    <span>DSA</span>
+                    <span>OOP</span>
+                    <span>SDLC</span>
+                    <span>Agile</span>
+                    <span>Data Driven Testing</span>
+                </div>
+            </div>
+
+            <!-- AI Tools -->
+            <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="500">
+                <h3><i data-feather="zap"></i> AI Tools</h3>
+                <div class="skill-tags">
+                    <span>Ollama</span>
+                    <span>ChatGPT</span>
+                    <span>Gemini</span>
+                    <span>DeepSeek</span>
+                    <span>LLM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+
+        <div class="projects-grid-layout">
+            <!-- Project 1: AI Interview -->
+            <div class="project-card glass-card" data-aos="fade-up">
+                <div class="project-header">
+                    <h3><i data-feather="cpu" class="project-icon"></i> AI Interview System</h3>
+                    <div class="tech-stack">
+                        <span>Java</span><span>Spring</span><span>Gemini API</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    AI-powered platform that generates interview questions, evaluates answers, and provides
+                    real-time scoring.
+                </p>
+                <a href="#" class="btn-text">View Details <i data-feather="arrow-right"></i></a>
+            </div>
+
+            <!-- Project 2: Smart Grampanchayat -->
+            <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-header">
+                    <h3><i data-feather="users" class="project-icon"></i> Smart Grampanchayat</h3>
+                    <div class="tech-stack">
+                        <span>Java</span><span>MySQL</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    Web-based system to improve communication between villagers and local governance, enabling
+                    complaint registration.
+                </p>
+                <a href="#" class="btn-text">View Details <i data-feather="arrow-right"></i></a>
+            </div>
+
+            <!-- Project 3: Accommodation -->
+            <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-header">
+                    <h3><i data-feather="home" class="project-icon"></i> Accommodation System</h3>
+                    <div class="tech-stack">
+                        <span>Java</span><span>MySQL</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    Hostel management system to automate room allocation and fee tracking with a grievance redressal
+                    module.
+                </p>
+                <a href="#" class="btn-text">View Details <i data-feather="arrow-right"></i></a>
+            </div>
+
+            <!-- Project 4: Hair Disease -->
+            <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-header">
+                    <h3><i data-feather="activity" class="project-icon"></i> Hair Disease Detection</h3>
+                    <div class="tech-stack">
+                        <span>Python</span><span>Django</span><span>OpenCV</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    ML model to classify scalp conditions using image analysis with a Django web interface for
+                    results.
+                </p>
+                <a href="#" class="btn-text">View Details <i data-feather="arrow-right"></i></a>
+            </div>
+
+            <!-- Project 5: Project Tracker -->
+            <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-header">
+                    <h3><i data-feather="trello" class="project-icon"></i> Project Tracker</h3>
+                    <div class="tech-stack">
+                        <span>PHP</span><span>MySQL</span><span>HTML/CSS</span>
+                    </div>
+                </div>
+                <p class="project-desc">
+                    Web platform enabling students to submit project updates while teachers track progress and
+                    provide timely feedback.
+                </p>
+                <a href="#" class="btn-text">View Details <i data-feather="arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Courses & Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card glass-card" data-aos="flip-up">
+                <i data-feather="award" class="cert-icon"></i>
+                <h4>Software Engineering & Agile</h4>
+                <p>Infosys Springboard — July 2025</p>
+            </div>
+            <div class="cert-card glass-card" data-aos="flip-up" data-aos-delay="100">
+                <i data-feather="award" class="cert-icon"></i>
+                <h4>Agile Scrum in Practice</h4>
+                <p>Infosys Springboard — 2025</p>
+            </div>
+            <div class="cert-card glass-card" data-aos="flip-up" data-aos-delay="200">
+                <i data-feather="code" class="cert-icon"></i>
+                <h4>DSA with Java</h4>
+                <p>Excelr — 2025</p>
+            </div>
+            <div class="cert-card glass-card" data-aos="flip-up" data-aos-delay="300">
+                <i data-feather="check-square" class="cert-icon"></i>
+                <h4>Core Java Certificate</h4>
+                <p>2023</p>
+            </div>
+            <div class="cert-card glass-card" data-aos="flip-up" data-aos-delay="400">
+                <i data-feather="check-square" class="cert-icon"></i>
+                <h4>C and C++ Certificate</h4>
+                <p>2022</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info glass-card" data-aos="fade-right">
+                <h3>Get In Touch</h3>
+                <p>I'm eager to contribute to exciting projects and grow as a developer.</p>
+
+                <div class="contact-item">
+                    <i data-feather="map-pin"></i>
+                    <span>Pune, Maharashtra, India</span>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="phone"></i>
+                    <span>+91 9356292123</span>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="mail"></i>
+                    <span>ankitaspatil05@gmail.com</span>
+                </div>
+
+                <div class="social-icons-lg">
+                    <a href="#"><i data-feather="linkedin"></i></a>
+                    <a href="#"><i data-feather="github"></i></a>
+                </div>
+            </div>
+
+            <form class="contact-form glass-card" data-aos="fade-left">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="How can I help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container footer-content">
+        <p>&copy; <span id="year"></span> Ankita Patil. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/ankita-patil-085349292"><i data-feather="linkedin"></i></a>
+            <a href="#"><i data-feather="github"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+    feather.replace();
+</script>
+</body>
+
+</html>
