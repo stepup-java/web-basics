@@ -217,513 +217,513 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <div class="container">
-        <div class="page-header">
-            <h1>🎓 Portfolio Showcase</h1>
-            <p>Discover talented students and their amazing projects</p>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-container">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search students by name..." />
-        </div>
+<!-- Header -->
+<div class="container">
+    <div class="page-header">
+        <h1>🎓 Portfolio Showcase</h1>
+        <p>Discover talented students and their amazing projects</p>
     </div>
 
-    <!-- Student Cards Grid -->
-    <div class="container">
-        <div class="row g-4" id="studentCardsContainer">
-            <!-- Student cards will be generated here by JavaScript -->
-        </div>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <label for="searchInput"></label><input type="text" id="searchInput" class="form-control" placeholder="Search students by name..." />
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="text-center text-white mt-5 pb-4">
-        <p>&copy; 2025 Student Portfolio Showcase. All rights reserved.</p>
-    </footer>
+<!-- Student Cards Grid -->
+<div class="container">
+    <div class="row g-4" id="studentCardsContainer">
+        <!-- Student cards will be generated here by JavaScript -->
+    </div>
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="text-center text-white mt-5 pb-4">
+    <p>&copy; 2025 Student Portfolio Showcase. All rights reserved.</p>
+</footer>
 
-    <script>
-        // Student Data
-        const students = [
-            {
-                id: 0,
-                name: "Java Session Notes",
-                title: "Step Up and Learn",
-                image: "https://stepupandlearn.in/wp-content/uploads/2023/09/stepup_logo.png",
-                github: "https://github.com/stepup-java",
-                linkedin: "",
-                twitter: "",
-                portfolio: "java-mastery-hub"
-            },
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-            {
-                id: 1,
-                name: "Vijay Chopade",
-                title: "Software Developer",
-                image: "./vijaychopade/Vijay.jpeg",
-                github: "https://github.com/vijay-chopade",
-                linkedin: "https://www.linkedin.com/in/vijaychopade/",
-                twitter: "https://x.com/vijaychopade__",
-                portfolio: "vijaychopade"
-            },
-            {
-                id: 2,
-                name: "Prajwal Kalaskar",
-                title: "Java Developer",
-                image: "./prajwal_kalaskar/image/Prajwal_web.png",
-                github: "https://github.com/Prajwalk-20",
-                linkedin: "https://www.linkedin.com/in/prajwal-kalaskar-014b30282/",
-                portfolio: "Prajwal_Kalaskar"
-            },
-            {
-                id: 3,
-                name: "Yash Borekar",
-                title: "Backend Developer",
-                image: "./yashborekar/images/profile_photo.jpg",
-                github: "https://github.com/YashBorekar",
-                linkedin: "https://www.linkedin.com/in/yash-borekar-8b7783230/",
-                twitter: "",
-                portfolio: "yashborekar"
-            },
-            {
-                id: 4,
-                name: "Pankaj Ugale",
-                title: "Java Developer",
-                image: "./pankaj/images/pankaj_profile.jpg",
-                github: "https://github.com/PankajUgale",
-                linkedin: "https://www.linkedin.com/in/pankajugale",
-                twitter: "https://twitter.com",
-                portfolio: "https://my-portfolio-liard-one-14.vercel.app/"
-            },
-            {
-                id: 5,
-                name: "Nilesh Mungase",
-                title: "Software Developer",
-                image: "./nilesh/image/Profile_photo.jpg",
-                github: "https://github.com/NileshMungase",
-                linkedin: "https://linkedin.com/in/nilesh-mungase-867290249",
-                twitter: "https://twitter.com",
-                portfolio: "https://nileash45portfolio.vercel.app/"
-            },
-            {
-                id: 6,
-                name: "Sanket Khedkar",
-                title: "Frontend Developer",
-                image: "./sanket-khedkar/images/profile.jpg",
-                github: "https://github.com/sanki476",
-                linkedin: "https://www.linkedin.com/in/sanket-khedkar-643382358/",
-                twitter: "https://twitter.com",
-                portfolio: "sanket-khedkar"
-            },
-            {
-                id: 7,
-                name: "Ankita Patil",
-                title: "Software Developer",
-                image: "./ankitapatil/images/profile_image.jpg",
-                github: "https://github.com",
-                linkedin: "https://linkedin.comhttps://www.linkedin.com/in/ankita-patil-085349292",
-                twitter: "",
-                portfolio: "ankitapatil"
-            },
-            {
-                id: 8,
-                name: "Prathmesh Sargar",
-                title: "Software Developer",
-                image: "./prathmesh_sargar/Profile_image.jpg",
-                github: "https://github.com/prathmeshsargar10-3833",
-                linkedin: "",
-                portfolio: "prathmesh_sargar"
-            },
-            {
-                id: 9,
-                name: "Vaishnavi Kokate",
-                title: "Software Engineer",
-                image: "VAISHNAVI_KOKATE/VK_PHOTO.png",
-                github: "https://github.com/VAISHNAVIKOKATE24 ",
-                linkedin: "http://www.linkedin.com/in/vaishnavi-kokate24",
-                portfolio: "VAISHNAVI_KOKATE"
-            },
-            {
-                id: 10,
-                name: "Snehal Kokare",
-                title: "Software Developer",
-                image: "snehal_kokare/images/SnehalKokare.jpg",
-                github: "https://github.com/snehal100",
-                linkedin: " linkedin.com/in/snehal-kokare-58098a268",
-                twitter: "https://twitter.com",
-                portfolio: "snehal_kokare"
-            },
-            {
-                id: 11,
-                name: "Ashitosh Patil",
-                title: "Java+AWS Engineer",
-                image: "./ashitosh_patil/ashupatil.jpg",
-                github: "https://github.com/Ashu6605",
-                linkedin: "https://www.linkedin.com/in/ashitosh-patil-b50412269/",
-                twitter: "https://twitter.com",
-                portfolio: "ashitosh_patil"
-            },
-            {
-                id: 12,
-                name: "Dnyaneshwar Kale",
-                title: "Java Developer",
-                image: "./Dnyaneshwar_kale/img/Dnyaneshwar.jpg",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter:"https://twitter.com",
-                portfolio:"Dnyaneshwar_kale"
-            },
-            {
-                id: 13,
-                name: "Neha Patil",
-                title: "Softawre Developer",
-                image: "./Neha_Patil/Neha_Photo.png",
-                github: "https://github.com/NehaDhoranPatil",
-                linkedin: "https://www.linkedin.com/in/neha-patil-61908b39b/",
-                twitter: "",
-                portfolio: "Neha_Patil"
-            },
-            {
-                id: 14,
-                name: "Rituja Nimbalkar",
-                title: "Java Developer",
-                image: "Rituja_Nimbalkar/image/image.jpg",
-                github: "https://github.com/Rutuja1243",
-                linkedin: "https://www.linkedin.com/in/rutuja-nimbalkar-621714201/",
-                twitter: "https://twitter.com",
-                portfolio: "Rituja_Nimbalkar"
-            },
-            {
-                id: 15,
-                name: "Ankita Tagade",
-                title: "Software Developer",
-                image: "./ankita_tagade/Ankita.jpg",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "ankita_tagade"
-            },
-            {
-                id: 16,
-                name: "Tejashree Suryawanshi",
-                title: "Software Developer",
-                image: "./tejashree_suryawanshi/images/Tejashree_Profile.jpg",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "tejashree_suryawanshi"
-            },
-            {
-                id: 17,
-                name: "Avishkar Pachpute",
-                title: "Web Developer",
-                image: "avishkar_pachpute/avatar.png",
-                github: "https://github.com/AvishkarPachpute",
-                linkedin: "www.linkedin.com/in/avishkar-pachpute",
-                twitter: "https://twitter.com",
-                portfolio: "./avishkar_pachpute"
-            },
-            {
-                id: 18,
-                name: "Swapnali Patil",
-                title: "Software Engineer",
-                image: "SwpnaliPatil/Swapnali.jpg",
-                github: "https://github.com/patilswapnali2210-sketch",
-                linkedin: "https://www.linkedin.com/in/swapnali-patil-115a112b9",
-                twitter: "https://twitter.com",
-                portfolio: "SwpnaliPatil"
-            },
-             {
-                id: 19,
-                name: "Neha Ingawale",
-                title: "Java Developer",
-                image: "NehaIngawale/images/image.jpeg",
-                github: "https://github.com/nehaingawale",
-                linkedin: "https://www.linkedin.com/in/neha-ingawale/",
-                twitter: "https://twitter.com",
-                portfolio: "NehaIngawale"
-            },
-            {
-                id: 20,
-                name: "Asavari Kodag",
-                title: "software engineer",
-                image: "./asavarikodag/images/ashu.png",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "",
-                portfolio: "asavarikodag"
-            },
-            {
-                id: 21,
-                name: "Sandeep Mishra",
-                title: "Solutions Architect",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandeep",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "",
-                portfolio: "sandeep-mishra"
-            },
-            {
-                id: 22,
-                name: "Dhanashri Nashte",
-                title: "Full Stack Developer",
-                image: "./Dhanashri_Nashte/assets/images/Dhanashri_photo.png",
-                github: "https://github.com/DMNASHTE",
-                linkedin: "https://www.linkedin.com/in/dhanashri-nashte-84011020b/",
-                twitter: "",
-                portfolio: "Dhanashri_Nashte"
-            },
-            {
-                id: 23,
-                name: "Rutuja Bodakhe",
-                title: "Aspiring Software Developer",
-                image: "rutuja_bodakhe/image/rutuja_profile.png",
-                github: "https://github.com/Rutuja9561",
-                linkedin: "https://www.linkedin.com/in/rutuja-bodakhe-48538325a/",
-                twitter: "",
-                portfolio: "rutuja_bodakhe"
-            },
-            {
-                id: 24,
-                name: "Sakshi Deshmane",
-                title: "Full Stack Developer",
-                image: "/sakshideshmane/Sakshi.jpeg",
-                github: "https://github.com/Sakshiideshmane",
-                linkedin: "https://www.linkedin.com/in/sakshi-deshmane-a157b429a/",
-                twitter: "https://twitter.com",
-                portfolio: "sakshideshmane"
-            },
-            {
-                id: 25,
-                name: "Akshada Ghangale",
-                title: "Java Developer",
-                image: "./akshada-ghangale/images/AkshadaGhangale.jpg",
-                github: "https://github.com/AKSHHH-GIT",
-                linkedin: "https://www.linkedin.com/in/akkshada-ghangale-37baa0320/",
-                twitter: "https://twitter.com",
-                portfolio: "akshada-ghangale"
-            },
-            {
-                id: 26,
-                name: "Akanksha Bhusare",
-                title: "Software Developer",
-                image: "Akanksha_Bhusare/images/Akanksha_Image.jpeg",
-                github: "https://github.com/akankshabhusare",
-                linkedin: "https://www.linkedin.com/in/akanksha-bhusare-444422318",
-                twitter: "",
-                portfolio: "Akanksha_Bhusare"
-            },
-            {
-                id: 27,
-                name: "Harshad Thube",
-                title: "Backend Engineer",
-                image: "Harshadthube/photoLinkedin.png",
-                github: "https://github.com/harshadthube20",
-                linkedin: "https://www.linkedin.com/in/harshad-thube-08b6722b7/",
-                portfolio: "Harshadthube"
-            },
-            {
-               id: 28,
-                name: "Ankur Sirsat",
-                title: "Java Developer",
-                image: "./Ankur/Ankur_Photo.jpg",
-                github: "https://github.com/ankursirsat",
-                linkedin: "https://www.linkedin.com/in/ankur-sirsat-9988aa226",
-                twitter: "https://twitter.com",
-                portfolio: "https://ankur-sirsat.lovable.app/"
-            },
-            {
-                id: 29,
-                name: "Nikhil Ghanwat",
-                title: "Java Developer",
-                image: "./Nikhil/images/Nikhil_Photo.jpg",
-                github: "https://github.com/NIkhilGhanwat90",
-                linkedin: "https://www.linkedin.com/in/nikhil-ghanwat-467723274/",
-                twitter: "https://twitter.com",
-                portfolio: "https://career-snapshot-creator.lovable.app/"
-            },
-            {
-                id: 30,
-                name: "Neha Singh",
-                title: "Cyber Security Expert",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Neha2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "neha-singh"
-            },
-            {
-               id: 31,
-                name: "Pranali Honrao",
-                title: "Web Devloper",
-                image: "Pranali_honrao/Image/pranali.jpg",
-                github: "https://github.com/pranalihonrao",
-                linkedin: "https://www.linkedin.com/in/pranali-honrao-",
-                twitter: "https://twitter.com",
-                portfolio: "Pranali_honrao"
-            },
+<script>
+    // Student Data
+    const students = [
+        {
+            id: 0,
+            name: "Java Session Notes",
+            title: "Step Up and Learn",
+            image: "https://stepupandlearn.in/wp-content/uploads/2023/09/stepup_logo.png",
+            github: "https://github.com/stepup-java",
+            linkedin: "",
+            twitter: "",
+            portfolio: "java-mastery-hub"
+        },
 
-            {
-                id: 32,
-                name: "Diya Sharma",
-                title: "Scrum Master",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Diya2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "diya-sharma"
-            },
-            {
-                id: 33,
-                name: "Aditya Nair",
-                title: "Vue.js Developer",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aditya2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "aditya-nair"
-            },
-            {
-                id: 34,
-                name: "Sneha Kapoor",
-                title: "Technical Writer",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sneha2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "sneha-kapoor"
-            },
-            {
-                id: 35,
-                name: "Swapnali Khalate",
-                title: "Java Developer",
-                image: "/Swapnali_Khalate/swap.jpg",
-                github: "https://github.com/Swapnali52",
-                linkedin: "https://www.linkedin.com/in/swapnali-khalate-bab3b5216",
-                twitter: "https://twitter.com/",
-                portfolio: "https://resume-rocket-folio.lovable.app"
-            },
-            {
-                id: 36,
-                name: "Vivek Mirajkar",
-                title: "Python Automation Tester",
-                image: "/Vivek_Mirajkar/vivek.jpg",
-                github: "https://github.com/vivekmirajkar303-cell",
-                linkedin: "https://www.linkedin.com/in/vivek-mirajkar-2a8380389",
-                twitter: "https://twitter.com",
-                portfolio: "https://auto-dev-showcase.lovable.app"
-            },
-            {
-                id: 37,
-                name: "Sandeep Patel",
-                title: "GraphQL Developer",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandeep2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "sandeep-patel"
-            },
-            {
-                id: 38,
-                name: "Riya Singh",
-                title: "Interaction Designer",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Riya2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "riya-singh"
-            },
-            {
-                id: 39,
-                name: "Varun Nair",
-                title: "TypeScript Developer",
-                image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Varun2",
-                github: "https://github.com",
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                portfolio: "varun-nair"
-            },
-            {
-                id: 40,
-                name: "Sharayu Kamble",
-                title: "Software Developer",
-                image: "Sharayu_Kamble/Image/photo.jpg",
-                github: "https://github.com/Sharu0715",
-                linkedin: "https://www.linkedin.com/in/sharayu-kamble-2284122b8/",
-                portfolio: "Sharayu_Kamble"
-            }
-        ];
+        {
+            id: 1,
+            name: "Vijay Chopade",
+            title: "Software Developer",
+            image: "./vijaychopade/Vijay.jpeg",
+            github: "https://github.com/vijay-chopade",
+            linkedin: "https://www.linkedin.com/in/vijaychopade/",
+            twitter: "https://x.com/vijaychopade__",
+            portfolio: "vijaychopade"
+        },
+        {
+            id: 2,
+            name: "Prajwal Kalaskar",
+            title: "Java Developer",
+            image: "./prajwal_kalaskar/image/Prajwal_web.png",
+            github: "https://github.com/Prajwalk-20",
+            linkedin: "https://www.linkedin.com/in/prajwal-kalaskar-014b30282/",
+            portfolio: "Prajwal_Kalaskar"
+        },
+        {
+            id: 3,
+            name: "Yash Borekar",
+            title: "Backend Developer",
+            image: "./yashborekar/images/profile_photo.jpg",
+            github: "https://github.com/YashBorekar",
+            linkedin: "https://www.linkedin.com/in/yash-borekar-8b7783230/",
+            twitter: "",
+            portfolio: "yashborekar"
+        },
+        {
+            id: 4,
+            name: "Pankaj Ugale",
+            title: "Java Developer",
+            image: "./pankaj/images/pankaj_profile.jpg",
+            github: "https://github.com/PankajUgale",
+            linkedin: "https://www.linkedin.com/in/pankajugale",
+            twitter: "https://twitter.com",
+            portfolio: "https://my-portfolio-liard-one-14.vercel.app/"
+        },
+        {
+            id: 5,
+            name: "Nilesh Mungase",
+            title: "Software Developer",
+            image: "./nilesh/image/Profile_photo.jpg",
+            github: "https://github.com/NileshMungase",
+            linkedin: "https://linkedin.com/in/nilesh-mungase-867290249",
+            twitter: "https://twitter.com",
+            portfolio: "https://nileash45portfolio.vercel.app/"
+        },
+        {
+            id: 6,
+            name: "Sanket Khedkar",
+            title: "Frontend Developer",
+            image: "./sanket-khedkar/images/profile.jpg",
+            github: "https://github.com/sanki476",
+            linkedin: "https://www.linkedin.com/in/sanket-khedkar-643382358/",
+            twitter: "https://twitter.com",
+            portfolio: "sanket-khedkar"
+        },
+        {
+            id: 7,
+            name: "Ankita Patil",
+            title: "Software Developer",
+            image: "./ankitapatil/images/profile_image.jpg",
+            github: "https://github.com",
+            linkedin: "https://linkedin.comhttps://www.linkedin.com/in/ankita-patil-085349292",
+            twitter: "",
+            portfolio: "ankitapatil"
+        },
+        {
+            id: 8,
+            name: "Prathmesh Sargar",
+            title: "Software Developer",
+            image: "./prathmesh_sargar/Profile_image.jpg",
+            github: "https://github.com/prathmeshsargar10-3833",
+            linkedin: "",
+            portfolio: "prathmesh_sargar"
+        },
+        {
+            id: 9,
+            name: "Vaishnavi Kokate",
+            title: "Software Engineer",
+            image: "VAISHNAVI_KOKATE/VK_PHOTO.png",
+            github: "https://github.com/VAISHNAVIKOKATE24 ",
+            linkedin: "http://www.linkedin.com/in/vaishnavi-kokate24",
+            portfolio: "VAISHNAVI_KOKATE"
+        },
+        {
+            id: 10,
+            name: "Snehal Kokare",
+            title: "Software Developer",
+            image: "snehal_kokare/images/SnehalKokare.jpg",
+            github: "https://github.com/snehal100",
+            linkedin: " linkedin.com/in/snehal-kokare-58098a268",
+            twitter: "https://twitter.com",
+            portfolio: "snehal_kokare"
+        },
+        {
+            id: 11,
+            name: "Ashitosh Patil",
+            title: "Java+AWS Engineer",
+            image: "./ashitosh_patil/ashupatil.jpg",
+            github: "https://github.com/Ashu6605",
+            linkedin: "https://www.linkedin.com/in/ashitosh-patil-b50412269/",
+            twitter: "https://twitter.com",
+            portfolio: "ashitosh_patil"
+        },
+        {
+            id: 12,
+            name: "Dnyaneshwar Kale",
+            title: "Java Developer",
+            image: "./Dnyaneshwar_kale/img/Dnyaneshwar.jpg",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter:"https://twitter.com",
+            portfolio:"Dnyaneshwar_kale"
+        },
+        {
+            id: 13,
+            name: "Neha Patil",
+            title: "Softawre Developer",
+            image: "./Neha_Patil/Neha_Photo.png",
+            github: "https://github.com/NehaDhoranPatil",
+            linkedin: "https://www.linkedin.com/in/neha-patil-61908b39b/",
+            twitter: "",
+            portfolio: "Neha_Patil"
+        },
+        {
+            id: 14,
+            name: "Rituja Nimbalkar",
+            title: "Java Developer",
+            image: "Rituja_Nimbalkar/image/image.jpg",
+            github: "https://github.com/Rutuja1243",
+            linkedin: "https://www.linkedin.com/in/rutuja-nimbalkar-621714201/",
+            twitter: "https://twitter.com",
+            portfolio: "Rituja_Nimbalkar"
+        },
+        {
+            id: 15,
+            name: "Ankita Tagade",
+            title: "Software Developer",
+            image: "./ankita_tagade/Ankita.jpg",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "ankita_tagade"
+        },
+        {
+            id: 16,
+            name: "Tejashree Suryawanshi",
+            title: "Software Developer",
+            image: "./tejashree_suryawanshi/images/Tejashree_Profile.jpg",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "tejashree_suryawanshi"
+        },
+        {
+            id: 17,
+            name: "Avishkar Pachpute",
+            title: "Web Developer",
+            image: "avishkar_pachpute/avatar.png",
+            github: "https://github.com/AvishkarPachpute",
+            linkedin: "www.linkedin.com/in/avishkar-pachpute",
+            twitter: "https://twitter.com",
+            portfolio: "./avishkar_pachpute"
+        },
+        {
+            id: 18,
+            name: "Swapnali Patil",
+            title: "Software Engineer",
+            image: "SwpnaliPatil/Swapnali.jpg",
+            github: "https://github.com/patilswapnali2210-sketch",
+            linkedin: "https://www.linkedin.com/in/swapnali-patil-115a112b9",
+            twitter: "https://twitter.com",
+            portfolio: "SwpnaliPatil"
+        },
+         {
+            id: 19,
+            name: "Neha Ingawale",
+            title: "Java Developer",
+            image: "NehaIngawale/images/image.jpeg",
+            github: "https://github.com/nehaingawale",
+            linkedin: "https://www.linkedin.com/in/neha-ingawale/",
+            twitter: "https://twitter.com",
+            portfolio: "NehaIngawale"
+        },
+        {
+            id: 20,
+            name: "Asavari Kodag",
+            title: "software engineer",
+            image: "./asavarikodag/images/ashu.png",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "",
+            portfolio: "asavarikodag"
+        },
+        {
+            id: 21,
+            name: "Sandeep Mishra",
+            title: "Solutions Architect",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandeep",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "",
+            portfolio: "sandeep-mishra"
+        },
+        {
+            id: 22,
+            name: "Dhanashri Nashte",
+            title: "Full Stack Developer",
+            image: "./Dhanashri_Nashte/assets/images/Dhanashri_photo.png",
+            github: "https://github.com/DMNASHTE",
+            linkedin: "https://www.linkedin.com/in/dhanashri-nashte-84011020b/",
+            twitter: "",
+            portfolio: "Dhanashri_Nashte"
+        },
+        {
+            id: 23,
+            name: "Rutuja Bodakhe",
+            title: "Aspiring Software Developer",
+            image: "rutuja_bodakhe/image/rutuja_profile.png",
+            github: "https://github.com/Rutuja9561",
+            linkedin: "https://www.linkedin.com/in/rutuja-bodakhe-48538325a/",
+            twitter: "",
+            portfolio: "rutuja_bodakhe"
+        },
+        {
+            id: 24,
+            name: "Sakshi Deshmane",
+            title: "Full Stack Developer",
+            image: "/sakshideshmane/Sakshi.jpeg",
+            github: "https://github.com/Sakshiideshmane",
+            linkedin: "https://www.linkedin.com/in/sakshi-deshmane-a157b429a/",
+            twitter: "https://twitter.com",
+            portfolio: "sakshideshmane"
+        },
+        {
+            id: 25,
+            name: "Akshada Ghangale",
+            title: "Java Developer",
+            image: "./akshada-ghangale/images/AkshadaGhangale.jpg",
+            github: "https://github.com/AKSHHH-GIT",
+            linkedin: "https://www.linkedin.com/in/akkshada-ghangale-37baa0320/",
+            twitter: "https://twitter.com",
+            portfolio: "akshada-ghangale"
+        },
+        {
+            id: 26,
+            name: "Akanksha Bhusare",
+            title: "Software Developer",
+            image: "Akanksha_Bhusare/images/Akanksha_Image.jpeg",
+            github: "https://github.com/akankshabhusare",
+            linkedin: "https://www.linkedin.com/in/akanksha-bhusare-444422318",
+            twitter: "",
+            portfolio: "Akanksha_Bhusare"
+        },
+        {
+            id: 27,
+            name: "Harshad Thube",
+            title: "Backend Engineer",
+            image: "Harshadthube/photoLinkedin.png",
+            github: "https://github.com/harshadthube20",
+            linkedin: "https://www.linkedin.com/in/harshad-thube-08b6722b7/",
+            portfolio: "Harshadthube"
+        },
+        {
+           id: 28,
+            name: "Ankur Sirsat",
+            title: "Java Developer",
+            image: "./Ankur/Ankur_Photo.jpg",
+            github: "https://github.com/ankursirsat",
+            linkedin: "https://www.linkedin.com/in/ankur-sirsat-9988aa226",
+            twitter: "https://twitter.com",
+            portfolio: "https://ankur-sirsat.lovable.app/"
+        },
+        {
+            id: 29,
+            name: "Nikhil Ghanwat",
+            title: "Java Developer",
+            image: "./Nikhil/images/Nikhil_Photo.jpg",
+            github: "https://github.com/NIkhilGhanwat90",
+            linkedin: "https://www.linkedin.com/in/nikhil-ghanwat-467723274/",
+            twitter: "https://twitter.com",
+            portfolio: "https://career-snapshot-creator.lovable.app/"
+        },
+        {
+            id: 30,
+            name: "Neha Singh",
+            title: "Cyber Security Expert",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Neha2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "neha-singh"
+        },
+        {
+           id: 31,
+            name: "Pranali Honrao",
+            title: "Web Devloper",
+            image: "Pranali_honrao/Image/pranali.jpg",
+            github: "https://github.com/pranalihonrao",
+            linkedin: "https://www.linkedin.com/in/pranali-honrao-",
+            twitter: "https://twitter.com",
+            portfolio: "Pranali_honrao"
+        },
 
-        // Function to create a student card HTML
-        function createStudentCard(student) {
-            return `
-                <div class="col-lg-4 col-md-6 col-sm-10 student-item" data-name="${student.name.toLowerCase()}">
-                    <div class="student-card">
-                        <div class="card-image-wrapper">
-                            <img src="${student.image}" alt="${student.name}">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="student-name">${student.name}</h5>
-                            <p class="student-title">${student.title}</p>
-                            
-                            <div class="social-links">
-                                <a href="${student.github
-                }" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="${student.linkedin
-                }" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="${student.twitter
-                }" target="_blank" rel="noopener noreferrer" class="social-link twitter" title="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                            
-                            <a href="${student.portfolio
-                }/" class="btn-view-portfolio">
-                                View Portfolio
+        {
+            id: 32,
+            name: "Diya Sharma",
+            title: "Scrum Master",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Diya2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "diya-sharma"
+        },
+        {
+            id: 33,
+            name: "Aditya Nair",
+            title: "Vue.js Developer",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aditya2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "aditya-nair"
+        },
+        {
+            id: 34,
+            name: "Sonal Salgar",
+            title: "Full Stack Java Developer",
+            image: "Sonal_Salgar/image/sonal.jpg",
+            github: "https://github.com/salgarsonal",
+            linkedin: "https://linkedin.com/in/sonal-salgar-a671a7227",
+            twitter: "https://twitter.com",
+            portfolio: "Sonal_Salgar"
+        },
+        {
+            id: 35,
+            name: "Swapnali Khalate",
+            title: "Java Developer",
+            image: "/Swapnali_Khalate/swap.jpg",
+            github: "https://github.com/Swapnali52",
+            linkedin: "https://www.linkedin.com/in/swapnali-khalate-bab3b5216",
+            twitter: "https://twitter.com/",
+            portfolio: "https://resume-rocket-folio.lovable.app"
+        },
+        {
+            id: 36,
+            name: "Vivek Mirajkar",
+            title: "Python Automation Tester",
+            image: "/Vivek_Mirajkar/vivek.jpg",
+            github: "https://github.com/vivekmirajkar303-cell",
+            linkedin: "https://www.linkedin.com/in/vivek-mirajkar-2a8380389",
+            twitter: "https://twitter.com",
+            portfolio: "https://auto-dev-showcase.lovable.app"
+        },
+        {
+            id: 37,
+            name: "Sandeep Patel",
+            title: "GraphQL Developer",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sandeep2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "sandeep-patel"
+        },
+        {
+            id: 38,
+            name: "Riya Singh",
+            title: "Interaction Designer",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Riya2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "riya-singh"
+        },
+        {
+            id: 39,
+            name: "Varun Nair",
+            title: "TypeScript Developer",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Varun2",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+            portfolio: "varun-nair"
+        },
+        {
+            id: 40,
+            name: "Sharayu Kamble",
+            title: "Software Developer",
+            image: "Sharayu_Kamble/Image/photo.jpg",
+            github: "https://github.com/Sharu0715",
+            linkedin: "https://www.linkedin.com/in/sharayu-kamble-2284122b8/",
+            portfolio: "Sharayu_Kamble"
+        }
+    ];
+
+    // Function to create a student card HTML
+    function createStudentCard(student) {
+        return `
+            <div class="col-lg-4 col-md-6 col-sm-10 student-item" data-name="${student.name.toLowerCase()}">
+                <div class="student-card">
+                    <div class="card-image-wrapper">
+                        <img src="${student.image}" alt="${student.name}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="student-name">${student.name}</h5>
+                        <p class="student-title">${student.title}</p>
+
+                        <div class="social-links">
+                            <a href="${student.github
+            }" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="${student.linkedin
+            }" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="${student.twitter
+            }" target="_blank" rel="noopener noreferrer" class="social-link twitter" title="Twitter">
+                                <i class="fab fa-twitter"></i>
                             </a>
                         </div>
+
+                        <a href="${student.portfolio
+            }/" class="btn-view-portfolio">
+                            View Portfolio
+                        </a>
                     </div>
                 </div>
-            `;
-        }
+            </div>
+        `;
+    }
 
-        // Function to render all students
-        function renderStudents(studentsToRender = students) {
-            const container = document.getElementById("studentCardsContainer");
-            container.innerHTML = studentsToRender
-                .map((student) => createStudentCard(student))
-                .join("");
-        }
+    // Function to render all students
+    function renderStudents(studentsToRender = students) {
+        const container = document.getElementById("studentCardsContainer");
+        container.innerHTML = studentsToRender
+            .map((student) => createStudentCard(student))
+            .join("");
+    }
 
-        // Search functionality
-        document
-            .getElementById("searchInput")
-            .addEventListener("input", function () {
-                const searchTerm = this.value.toLowerCase();
-                const items = document.querySelectorAll(".student-item");
+    // Search functionality
+    document
+        .getElementById("searchInput")
+        .addEventListener("input", function () {
+            const searchTerm = this.value.toLowerCase();
+            const items = document.querySelectorAll(".student-item");
 
-                items.forEach((item) => {
-                    const studentName = item.getAttribute("data-name");
-                    if (studentName.includes(searchTerm)) {
-                        item.style.display = "block";
-                    } else {
-                        item.style.display = "none";
-                    }
-                });
+            items.forEach((item) => {
+                const studentName = item.getAttribute("data-name");
+                if (studentName.includes(searchTerm)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
             });
-
-        // Initialize the page
-        document.addEventListener("DOMContentLoaded", function () {
-            renderStudents();
         });
-    </script>
+
+    // Initialize the page
+    document.addEventListener("DOMContentLoaded", function () {
+        renderStudents();
+    });
+</script>
 </body>
 
 </html>
