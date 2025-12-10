@@ -1,11 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <title>Ankita Tagade | Full Stack Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts, Bootstrap, MUI, Emotion, Babel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@mui/material@5.15.15/umd/material-ui.development.js"></script>
+  <script src="https://unpkg.com/@emotion/react@11.11.4/dist/emotion-react.umd.min.js"></script>
+  <script src="https://unpkg.com/@emotion/styled@11.11.0/dist/emotion-styled.umd.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #0f172a, #020617 40%, #000);
+      color: #e5e7eb;
+      padding-top: 70px;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Bigger CIRCLE avatar */
+    .profile-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%; /* show slightly lower area */
+      border: 3px solid rgba(56, 189, 248, 0.8);
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.85),
+        0 0 0 4px rgba(15, 23, 42, 0.95);
+    }
+
+    .card-section {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .skill-chip {
+      margin: 4px;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      font-size: 0.85rem;
+    }
+
+    /* Social icon buttons */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin: 10px 0 15px 0;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      color: #e5e7eb;
+    }
+
+    .social-icon.github {
+      background: #111827;
+      border: 1px solid #4b5563;
+    }
+
+    .social-icon.linkedin {
+      background: #0A66C2;
+      border: 1px solid #38bdf8;
+    }
+
+    .social-icon svg {
+      display: block;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      opacity: 0.95;
+    }
+
+    /* Slightly smaller circle on mobile */
+    @media (max-width: 768px) {
+      .profile-img {
+        width: 230px;
+        height: 230px;
+        object-position: center 20%;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Ankita Tagade</h1>
-</body>
 
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.9);">
+  <div class="container">
+    <a class="navbar-brand" href="#top">Ankita Tagade</a>
+  </div>
+</nav>
+
+<div id="root"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/babel">
+const {
+  ThemeProvider,
+  CssBaseline,
+  Container,
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Chip,
+  Divider,
+  Button
+} = MaterialUI;
+
+const theme = MaterialUI.createTheme({
+  palette: { mode: "dark" },
+});
+
+// HERO SECTION
+function HeroSection() {
+  return (
+    <Box id="about" className="mb-5">
+      <Container>
+        <div className="row align-items-center gy-4">
+          <div className="col-md-7">
+            <Typography variant="h3" gutterBottom>
+              Hi, I'm Ankita
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary" paragraph>
+              Full Stack Developer skilled in building dynamic web applications using React, Java, Spring Boot, MySQL and REST APIs. Passionate about writing clean code, solving problems and learning new technologies.
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary">
+              Currently based in Pune, Maharashtra · Interested in Full Stack / Backend / Java roles
+            </Typography>
+          </div>
+
+          <div className="col-md-5 d-flex justify-content-center text-center">
+            <img src="Ankita.jpg" alt="Ankita Tagade" className="profile-img" />
+          </div>
+        </div>
+
+        <div className="mt-4 card-section">
+          <Typography variant="subtitle1" gutterBottom>
+            What I'm looking for
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            A collaborative environment where I can grow, solve problems
+            and contribute end-to-end features.
+          </Typography>
+        </div>
+      </Container>
+    </Box>
+  );
+}
+
+// SKILLS SECTION
+function SkillsSection() {
+  const renderChips = (items) =>
+    items.map((item) => (
+      <Chip label={item} key={item} size="small" className="skill-chip" />
+    ));
+
+  return (
+    <Box id="skills" className="mb-5">
+      <Container maxWidth="lg">
+        <Typography variant="body2" color="text.secondary">
+          SKILLS
+        </Typography>
+        <Typography variant="h5" className="mb-3">
+          Tech Stack &amp; Tools
+        </Typography>
+
+        <Card className="card-section">
+          <CardContent>
+            <div className="row gy-3">
+              <div className="col-md-6">
+                <Typography variant="subtitle2" gutterBottom>
+                  Frontend
+                </Typography>
+                {renderChips(["HTML5", "CSS3", "JavaScript", "React.js"])}
+
+                <Typography variant="subtitle2" gutterBottom className="mt-3">
+                  Programming Languages
+                </Typography>
+                {renderChips(["Core Java", "Advanced Java", "Python", "C / C++", "JavaScript", "SQL"])}
+
+                <Typography variant="subtitle2" gutterBottom className="mt-3">
+                  Others
+                </Typography>
+                {renderChips(["Data Structures & Algorithms", "Problem Solving"])}
+              </div>
+
+              <div className="col-md-6">
+                <Typography variant="subtitle2" gutterBottom>
+                  Backend
+                </Typography>
+                {renderChips(["Spring Boot", "Spring MVC", "Spring Data", "Spring Security", "REST APIs", ".NET"])}
+
+                <Typography variant="subtitle2" gutterBottom className="mt-3">
+                  Databases &amp; Tools
+                </Typography>
+                {renderChips(["MySQL", "Git / GitHub / GitLab", "Docker"])}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
+  );
+}
+
+// PROJECTS SECTION
+function ProjectsSection() {
+  return (
+    <Box id="projects" className="mb-5">
+      <Container maxWidth="lg">
+        <Typography variant="body2" color="text.secondary">
+          PROJECTS
+        </Typography>
+        <Typography variant="h5" className="mb-3">
+          Featured Work
+        </Typography>
+
+        <Card className="card-section mb-3">
+          <CardContent>
+            <Typography variant="h6">Gym Management System</Typography>
+
+            <Typography variant="body2" color="text.secondary" mt={1} mb={2}>
+              A web-based platform to streamline gym operations with features for customer and trainer management,
+              plan handling, payments, and secure diet plan upload/download.
+            </Typography>
+
+            <Divider light sx={{ my: 2 }} />
+
+            <div className="row gy-2">
+              <div className="col-md-6">
+                <Typography variant="subtitle2" gutterBottom>
+                  Responsibilities
+                </Typography>
+                <ul className="mb-2">
+                  <li>Developed responsive frontend using React, HTML &amp; CSS.</li>
+                  <li>Implemented REST APIs using Spring Boot.</li>
+                  <li>Designed database schema in MySQL.</li>
+                  <li>Integrated JWT authentication.</li>
+                </ul>
+              </div>
+
+              <div className="col-md-6">
+                <Typography variant="subtitle2" gutterBottom>
+                  Tech Stack
+                </Typography>
+                <Chip label="React.js" size="small" />
+                <Chip label="HTML &amp; CSS" size="small" />
+                <Chip label="Java" size="small" />
+                <Chip label="Spring Boot" size="small" />
+                <Chip label="REST APIs" size="small" />
+                <Chip label="MySQL" size="small" />
+                <Chip label="JWT Authentication" size="small" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
+  );
+}
+
+// EDUCATION SECTION
+function EducationSection() {
+  return (
+    <Box id="education" className="mb-5">
+      <Container maxWidth="lg">
+        <Typography variant="body2" color="text.secondary">
+          EDUCATION
+        </Typography>
+        <Typography variant="h5" className="mb-3">
+          Academics &amp; Certifications
+        </Typography>
+
+        <div className="row gy-3">
+          <div className="col-md-6">
+            <Card className="card-section">
+              <CardContent>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Post Graduate Diploma
+                </Typography>
+                <Typography variant="h6">
+                  PG-DAC, Sunbeam Institute of Information Technology
+                </Typography>
+                <Typography variant="body2" color="text.secondary" mt={1}>
+                  Advanced Computing focused on full stack development.
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="col-md-6">
+            <Card className="card-section">
+              <CardContent>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Bachelor of Engineering
+                </Typography>
+                <Typography variant="h6">
+                  BE in Electrical Engineering
+                </Typography>
+                <Typography variant="body2" color="text.secondary" mt={1}>
+                  Strong foundation in engineering concepts and problem solving.
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <Box mt={4}>
+          <Typography variant="subtitle2" gutterBottom>
+            Certifications
+          </Typography>
+          <Card className="card-section mb-3">
+            <CardContent>
+              <ul className="mb-2">
+                <li>Advance Computing – Sunbeam Institute of Information Technology, Pune (Aug 2024)</li>
+                <li>Java Full Stack Development – Step Up And Learn, Karve Nagar, Pune (Oct 2025)</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Box>
+      </Container>
+    </Box>
+  );
+}
+
+// CONTACT SECTION
+function ContactSection() {
+  return (
+    <Box id="contact" className="mb-5">
+      <Container maxWidth="lg">
+        <Typography variant="body2" color="text.secondary">
+          CONTACT
+        </Typography>
+
+        <Typography variant="h5" className="mb-3">
+          Let's build something together
+        </Typography>
+
+        <Card className="card-section">
+          <CardContent>
+            <Typography variant="body1" paragraph>
+              I'm actively looking for opportunities as a Full Stack / Backend / .NET Developer.
+              If you're hiring or know of a role where I can contribute, I'd love to connect.
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary" paragraph>
+              Feel free to reach out for roles, collaborations or just to say hi.
+            </Typography>
+
+            <div className="mb-2">📧 ankitatagade299@gmail.com</div>
+            <div className="mb-2">📱 +91-84599 47746</div>
+            <div className="mb-3">📍 Pune, Maharashtra, India</div>
+
+            <div className="social-icons">
+              {/* GitHub icon */}
+              <a
+                href="https://github.com/AnkitaTagade"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon github"
+                aria-label="GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 16 16"
+                  fill="white"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                    0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+                    1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                    0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27
+                    2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+                    1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+                    2.19 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"
+                  />
+                </svg>
+              </a>
+
+              {/* LinkedIn icon */}
+              <a
+                href="https://www.linkedin.com/in/ankita-tagade-1888151a0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon linkedin"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.3 8.11H4.7V23H.3V8.11zM8.56 8.11h4.2v2.03h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.68V23h-4.4v-7.02c0-1.68-.03-3.84-2.34-3.84-2.34 0-2.7 1.83-2.7 3.72V23h-4.4V8.11z"/>
+                </svg>
+              </a>
+            </div>
+
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              href="mailto:ankitatagade299@gmail.com?subject=Hello"
+            >
+              SAY HELLO
+            </Button>
+          </CardContent>
+        </Card>
+      </Container>
+    </Box>
+  );
+}
+
+// APP
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <HeroSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <EducationSection />
+      <ContactSection />
+
+      <Box py={3} textAlign="center">
+        <Typography variant="caption" color="text.secondary">
+          © {new Date().getFullYear()} Ankita Tagade · Portfolio
+        </Typography>
+      </Box>
+    </ThemeProvider>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+</script>
+</body>
 </html>
